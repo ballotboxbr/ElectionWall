@@ -1819,7 +1819,7 @@ var delegates = {
             "IA": {
                 "type": "c",
                 "delegates": 40,
-		"time": 8
+	        	"time": 8
             },
             "KS": {
                 "type": "p",
@@ -1846,8 +1846,8 @@ var delegates = {
                 "delegates": 40
             },
             "MI": {
-                "type": "c",
-                "delegates": 55
+                "type": "p",
+                "delegates": 16
             },
             "MN": {
                 "type": "p",
@@ -1872,7 +1872,7 @@ var delegates = {
             "NV": {
                 "type": "c",
                 "delegates": 26,
-		"time": 10.5
+		        "time": 10.5
             },
             "NH": {
                 "type": "p",
