@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ELECTION MAP</title>
+	<link rel="stylesheet" type="text/css" href="electoral.css">
+</head>
+
+<body>
+	<div id="data"></div>
+	<div id="root">
+		<div id="mapFiller"></div>
+		<svg width="0" height="0" viewBox="0 0 0 0" id="nationalMap" class="mapTest">
+			<path id="pathDrawn" d="" />
+		</svg>
+
+		<div id="electoralVoteMaine">
+			<span id="evMaineHeading" class="evHeading">MAINE SPLIT</span>
+			<span class="evBox">
+				<span id="evMaineP"><span>POP.</span><span></span><span>2</span></span>
+				<span id="evMaine1"><span>CD1</span><span></span><span>1</span></span>
+				<span id="evMaine2"><span>CD2</span><span></span><span>1</span></span>
+			</span>
+		</div>
+
+		<div id="electoralVoteNebraska">
+			<span id="evNebraskaHeading" class="evHeading">Nebraska SPLIT</span>
+			<span class="evBox">
+				<span id="evNebraskaP"><span>POP.</span><span></span><span>2</span></span>
+				<span id="evNebraska1"><span>CD1</span><span></span><span>1</span></span>
+				<span id="evNebraska2"><span>CD2</span><span></span><span>1</span></span>
+				<span id="evNebraska3"><span>CD3</span><span></span><span>1</span></span>
+
+			</span>
+		</div>
+
+		<div id="historyPanel"></div>
+		<div id="historyPanelCover"></div>
+
+		<div id="road270box" class="hidden">
+			<div id="tallyCandidatesBox">
+				<span id="tallyCandidatesBoxLeft"></span>
+				<span id="tallyCandidatesBoxRight"></span>
+				<img id="tallyCandidatesBoxLeftImg" alt="Democratic candidate image"
+					src="assets/images/candidates/biden.webp">
+				<img id="tallyCandidatesBoxRightImg" alt="Republican candidate image"
+					src="assets/images/candidates/trump.webp">
+				<span id="tallyCandidatesBoxLeftText">Joe<br>Biden</span>
+				<span id="tallyCandidatesBoxRightText">Donald<br>Trump</span>
+			</div>
+			<div id="tallyCandidateDemWin" class="road270WinPane">
+				<img id="tCDemWinImg" src="assets/images/candidates/biden.webp">
+			</div>
+			<div id="tallyCandidateGopWin" class="road270WinPane">
+				<img id="tCGopWinImg" src="assets/images/candidates/trump.webp">
+			</div>
+
+			<span id="tallyCandidatesTextBox">270 Votes <cnnL>to Win</cnnL></span>
+			<span id="tallyCandidatesBars">
+				<span id="tallyCandidatesBarBackground"></span><span id="tallyCandidatesBarBackground"></span>
+				<span id="tallyCandidatesBarLeft"></span><span id="tallyCandidatesBarRight"></span>
+				<span id="tallyCandidateTotalLeft">0</span><span id="tallyCandidateTotalRight">0</span>
+				<span id="tallyCandidateTotalLeftLabel">Votes</span><span
+					id="tallyCandidateTotalRightLabel">Votes</span>
+			</span>
+		</div>
+
+		<div id="results" class="hidden">
+			<div id="resultsBoxHouse" class="hidden">
+				<span id="resultsBoxHouseTotals">
+					<span id="resultsBoxHouseHeading">
+						<span id="resultsBoxHouseHeadingText">Leading the vote</span>
+						<span class="resultsHouseButton selected">AHD</span>
+						<span class="resultsHouseButton">CLD</span>
+						<span class="resultsHouseButton">UCD</span>
+					</span>
+					<span class="totalsOne">
+						<span id="resultsBoxHouseTotalsOneSeats" class="totalFig">0</span>
+						<span id="resultsBoxHouseTotalsOneLabel" class="totalLabel">Democrats</span>
+					</span>
+					<span class="totalsTwo">
+						<span id="resultsBoxHouseTotalsTwoSeats" class="totalFig">0</span>
+						<span id="resultsBoxHouseTotalsTwoLabel" class="totalLabel">Republicans</span>
+					</span>
+					<span class="detailsOne totalDetails">
+						<span class="detailsFig"></span>
+						<span class="detailsText"></span>
+					</span>
+					<span class="detailsTwo totalDetails">
+						<span class="detailsFig"></span>
+						<span class="detailsText"></span>
+					</span>
+					<span id="resultsBoxHouseTotalsReporting" class="totalUncalled"></span>
+				</span>
+				<span id="resultsBoxHouseDistricts"></span>
+			</div>
+
+			<span id="resultsBoxTop">
+				<span id="resultsBoxTopText"></span>
+				<span id="headingReportingText"></span>
+				<span class="filler"></span>
+				<span id="resultsBoxEstimate"></span>
+				<span id="resultsPollClosing"></span>
+			</span>
+			<span id="resultsBoxTooEarlyToCall">too early to call</span>
+			<span id="resultsBoxRunoffElection">HEADED TO RUNOFF ELECTION</span>
+			<span id="resultsBoxRankedChoiceVoting">RANKED CHOICE VOTING</span>
+			<span id="resultsBoxLegislatureSelection">LEGISLATURE CONTINGENT ELECTION</span>
+			<span id="resultsBoxUncontestedRace">UNCONTESTED RACE</span>
+			<span id="resultsCandidates">
+				<span id="resultsBoxOne">
+					<span id="resultsOneName" class="resultsName">
+						<span class="resultsBadge">
+							<svg id="resultsOneTick" class="tick" viewBox="0 0 54 43">
+								<path class="tickSVG" d="M47 0 18 29 7 18 0 25 18 43 54 7 47 0Z" />
+							</svg>
+							<span class="tickGain">+GAIN</span>
+							<span id="resultsOneTickWinner" class="projectedWinnerBadge">WINNER</span>
+							<span class="incumbentBadge">INCUMBENT</span>
+							<span class="runoffBadge">RUNOFF</span>
+							<span class="electedPresidentBadge">ELECTED PRESIDENT</span>
+						</span>
+						<span id="resultsOneProjection"></span>
+						<span class="namePaddingA"></span><span class="namePaddingB"></span>
+						<span id="resultsOneFirstName" class="firstName"></span>
+						<span id="resultsOneLastName" class="lastName"></span>
+						<span id="resultsAhead" onclick="toggleAheadNumber()"></span>
+					</span>
+					<span id="resultsOne">
+						<span id="resultsPercBoxOne" class="percBox"></span>
+						<span id="resultsVotesBoxOne" class="votesBox"></span>
+					</span>
+				</span>
+				<span id="resultsBoxTwo">
+					<span id="resultsTwoName" class="resultsName">
+						<span class="resultsBadge">
+							<svg id="resultsTwoTick" class="tick" viewBox="0 0 54 43">
+								<path class="tickSVG" d="M47 0 18 29 7 18 0 25 18 43 54 7 47 0Z" />
+							</svg>
+							<span class="tickGain">+GAIN</span>
+							<span class="projectedWinnerBadge">WINNER</span>
+							<span class="incumbentBadge">INCUMBENT</span>
+							<span class="runoffBadge">RUNOFF</span>
+							<span class="wonPopularVoteBadge"></span>
+						</span>
+						<span class="namePaddingA"></span><span class="namePaddingB"></span>
+						<span id="resultsTwoProjection"></span>
+						<span id="resultsTwoFirstName" class="firstName"></span>
+						<span id="resultsTwoLastName" class="lastName"></span>
+					</span>
+					<span id="resultsTwo">
+						<span id="resultsPercBoxTwo" class="percBox"></span>
+						<span id="resultsVotesBoxTwo" class="votesBox"></span>
+					</span>
+				</span>
+				<span id="resultsBoxThree">
+					<span id="resultsThreeName" class="resultsName">
+						<span class="resultsBadge">
+							<span class="incumbentBadge">INCUMBENT</span>
+							<span class="runoffBadge">RUNOFF</span>
+						</span>
+						<span class="namePaddingA"></span><span class="namePaddingB"></span>
+						<span class="projectedWinnerBadge">WINNER</span>
+						<span id="resultsThreeFirstName" class="firstName"></span>
+						<span id="resultsThreeLastName" class="lastName"></span>
+					</span>
+					<span id="resultsThree">
+						<span id="resultsPercBoxThree" class="percBox"></span>
+						<span id="resultsVotesBoxThree" class="votesBox"></span>
+					</span>
+				</span>
+				<span id="resultsBoxFour">
+					<span id="resultsFourName" class="resultsName">
+						<span class="resultsBadge">
+							<span class="incumbentBadge">INCUMBENT</span>
+							<span class="runoffBadge">RUNOFF</span>
+						</span>
+						<span class="namePaddingA"></span><span class="namePaddingB"></span>
+						<span id="resultsFourFirstName" class="firstName"></span>
+						<span id="resultsFourLastName" class="lastName"></span>
+					</span>
+					<span id="resultsFour">
+						<span id="resultsPercBoxFour" class="percBox"></span>
+						<span id="resultsVotesBoxFour" class="votesBox"></span>
+					</span>
+				</span>
+				<span id="resultsBoxFive">
+					<span id="resultsFiveName" class="resultsName">
+						<span class="resultsBadge">
+							<span class="incumbentBadge">INCUMBENT</span>
+							<span class="runoffBadge">RUNOFF</span>
+						</span>
+						<span class="namePaddingA"></span><span class="namePaddingB"></span>
+						<span id="resultsFiveFirstName" class="firstName"></span>
+						<span id="resultsFiveLastName" class="lastName"></span>
+					</span>
+					<span id="resultsFive">
+						<span id="resultsPercBoxFive" class="percBox"></span>
+						<span id="resultsVotesBoxFive" class="votesBox"></span>
+					</span>
+				</span>
+				<span id="resultsBoxSix">
+					<span id="resultsSixName" class="resultsName">
+						<span class="resultsBadge">
+							<span class="incumbentBadge">INCUMBENT</span>
+							<span class="runoffBadge">RUNOFF</span>
+						</span>
+						<span class="namePaddingA"></span><span class="namePaddingB"></span>
+						<span id="resultsSixFirstName" class="firstName"></span>
+						<span id="resultsSixLastName" class="lastName"></span>
+					</span>
+					<span id="resultsSix">
+						<span id="resultsPercBoxSix" class="percBox"></span>
+						<span id="resultsVotesBoxSix" class="votesBox"></span>
+					</span>
+				</span>
+				<span id="resultsBoxSeven">
+					<span id="resultsSevenName" class="resultsName">
+						<span class="resultsBadge">
+							<span class="incumbentBadge">INCUMBENT</span>
+							<span class="runoffBadge">RUNOFF</span>
+						</span>
+						<span class="namePaddingA"></span><span class="namePaddingB"></span>
+						<span id="resultsSevenFirstName" class="firstName"></span>
+						<span id="resultsSevenLastName" class="lastName"></span>
+					</span>
+					<span id="resultsSeven">
+						<span id="resultsPercBoxSeven" class="percBox"></span>
+						<span id="resultsVotesBoxSeven" class="votesBox"></span>
+					</span>
+				</span>
+				<span id="resultsBoxEight">
+					<span id="resultsEightName" class="resultsName">
+						<span class="resultsBadge">
+							<span class="incumbentBadge">INCUMBENT</span>
+							<span class="runoffBadge">RUNOFF</span>
+						</span>
+						<span class="namePaddingA"></span><span class="namePaddingB"></span>
+						<span id="resultsEightFirstName" class="firstName"></span>
+						<span id="resultsEightLastName" class="lastName"></span>
+					</span>
+					<span id="resultsEight">
+						<span id="resultsPercBoxEight" class="percBox"></span>
+						<span id="resultsVotesBoxEight" class="votesBox"></span>
+					</span>
+				</span>
+				<span id="resultsBoxNine">
+					<span id="resultsNineName" class="resultsName">
+						<span class="resultsBadge">
+							<span class="incumbentBadge">INCUMBENT</span>
+							<span class="runoffBadge">RUNOFF</span>
+						</span>
+						<span class="namePaddingA"></span><span class="namePaddingB"></span>
+						<span id="resultsNineFirstName" class="firstName"></span>
+						<span id="resultsNineLastName" class="lastName"></span>
+					</span>
+					<span id="resultsNine">
+						<span id="resultsPercBoxNine" class="percBox"></span>
+						<span id="resultsVotesBoxNine" class="votesBox"></span>
+					</span>
+				</span>
+				<span id="resultsBoxTen">
+					<span id="resultsTenName" class="resultsName">
+						<span class="resultsBadge">
+							<span class="incumbentBadge">INCUMBENT</span>
+							<span class="runoffBadge">RUNOFF</span>
+						</span>
+						<span class="namePaddingA"></span><span class="namePaddingB"></span>
+						<span id="resultsTenFirstName" class="firstName"></span>
+						<span id="resultsTenLastName" class="lastName"></span>
+					</span>
+					<span id="resultsTen">
+						<span id="resultsPercBoxTen" class="percBox"></span>
+						<span id="resultsVotesBoxTen" class="votesBox"></span>
+					</span>
+				</span>
+				<span id="resultsBoxOther">
+					<span id="resultsOtherText">
+						<span id="resultsOtherName">OTHERS</span>
+					</span>
+					<span id="resultsOther">
+						<span id="resultsPercBoxOther" class="percBox"></span>
+						<span id="resultsVotesBoxOther" class="votesBox"></span>
+					</span>
+				</span>
+
+				<span id="resultsBoxIndependents" class="hidden">
+					<span class="text">INDEPENDENTS</span>
+					<span id="resultsIndependentsNumber"></span>
+				</span>
+				<span id="resultsBoxUncalled" class="hidden">
+					<span class="text">UNCALLED</span>
+					<span id="resultsUncalledNumber"></span>
+				</span>
+				<span id="resultsBoxRunoff" class="hidden">
+					<span class="text">HEADED TO RUNOFF</span>
+					<span id="resultsRunoffNumber"></span>
+				</span>
+				<span id="resultsBoxTotal">
+					<span id="resultsTotalText"></span>
+					<span id="resultsTotalNumber">0</span>
+				</span>
+				<span id="resultsBoxFiller"></span>
+				<span id="resultsBoxSource">Source: AP via New York Times</span>
+			</span>
+		</div>
+
+		<div id="filterLabels">
+			<span id="mapLabelFilter"></span>
+			<span id="mapLabelStatData"></span>
+			<span id="mapLabelStat"></span>
+		</div>
+
+		<div id="boxPollClosing" class="hidden"><span id="boxPollClosingHeading"></span>
+			<div id="boxPollClosingStates"></div>
+		</div>
+		<div id="controlBarShadow"></div>
+		<div id="resultsHouseGroups"></div>
+		<div id="resultsLegend">
+			<div id="resultsLegendScale"></div>
+			<div id="resultsLegendKeys"></div>
+		</div>
+
+		<div id="toggleResultsHouseGroups" style="display: none">
+			<svg class="unselectable" viewBox="0 0 18 15">
+				<path style="display:none" id="groupsArrow"
+					d="M6 1.5 7.4 0 13.1 5.7 7.4 11.4 6 9.9 10.3 5.7 6 1.5ZM0 1.5 1.4 0 7.1 5.7 1.4 11.4 0 9.9 4.3 5.7 0 1.5Z" />
+			</svg>
+		</div>
+
+		<div id="statsBar">
+			<span class="statButton" onclick="statButton.call(this, 'margin')">margin</span>
+			<span class="statButton" id="buttonReporting" onclick="statButton.call(this, 'reporting')">reporting</span>
+			<span class="statButton" id="buttonSwing" onclick="statButton.call(this, 'swing')">swing</span>
+			<span class="statButton" onclick="statButton.call(this, 'statePop')">% state pop</span>
+			<span class="statButton" style="display:none" onclick="statButton.call(this, 'turnout')">turnout</span>
+			<span class="statButton" onclick="statButton.call(this, 'changeTurnout')">chg. turnout</span>
+			<span class="statButton" onclick="graphButton('race')">DEM: RACE</span>
+			<span class="statButton" onclick="statButton.call(this, 'popChange')">population change</span>
+			<span class="statButton" onclick="statButton.call(this, 'leadState')">VS STATE MARGIN</span>
+			<span class="statButton" onclick="statButton.call(this, 'leadNation')">VS NAT. MARGIN</span>
+			<span class="statButton" onclick="statButton.call(this, 'electoralVotes')">electoral votes</span>
+			<span class="statButton" style="display:none" onclick="statButton.call(this, 'pollClosing')">poll
+				closing</span>
+			<span class="statButton" onclick="statButton.call(this, 'demVote')">dem vote</span>
+			<span class="statButton" onclick="statButton.call(this, 'repVote')">rep vote</span>
+			<span class="statButton" onclick="statButton.call(this, 'otherVote')">other vote</span>
+			<span class="statButton" onclick="statButton.call(this, 'countyType')">county type</span>
+
+			<span class="statButton" id="buttonSwing8" onclick="statButton.call(this, 'swing8')">swing 8yr</span>
+			<span class="statButton" id="buttonSwing12" onclick="statButton.call(this, 'swing12')">swing 12yr</span>
+			<span class="statButton" id="buttonSwing16" onclick="statButton.call(this, 'swing16')">swing 16yr</span>
+
+			<span class="statButton" onclick="statButton.call(this, 'popWhite')">WHITE POP.</span>
+			<span class="statButton" onclick="statButton.call(this, 'popBlack')">BLACK POP.</span>
+			<span class="statButton" onclick="statButton.call(this, 'popAsian')">ASIAN POP.</span>
+			<span class="statButton" onclick="statButton.call(this, 'popLatino')">LATINO POP.</span>
+			<span class="statButton" onclick="statButton.call(this, 'popMinority')">MINORITY POP.</span>
+			<span class="statButton" onclick="statButton.call(this, 'incomeMedian')">INCOME MEDIAN</span>
+			<span class="statButton" onclick="statButton.call(this, 'incomeLess50')">INCOME LESS 50K</span>
+			<span class="statButton" onclick="statButton.call(this, 'income50to100')">INCOME 50-100K</span>
+			<span class="statButton" onclick="statButton.call(this, 'incomeGreater100')">INCOME MORE 100K</span>
+			<span class="statButton" onclick="statButton.call(this, 'percOver18')">population, over 18</span>
+			<span class="statButton" onclick="statButton.call(this, 'perc18to25')">population, 18 to 24</span>
+		</div>
+
+		<div id="filtersBar">
+			<span id="filterButtonGain" onclick="filterButton.call(this, 'gain')">gain</span>
+			<span id="filterButtonKeyRace" style="display:none" onclick="filterButton.call(this, 'keyRace')">key race</span>
+			<span id="filterButtonPickupOpp" onclick="filterButton.call(this, 'pickupOpportunities')">pickup
+				opportunities</span>
+			<span id="buttonPresDem" onclick="filterButton.call(this, 'presDem')">WON BY DEM</span>
+			<span id="buttonPresGop" onclick="filterButton.call(this, 'presGop')">WON BY GOP</span>
+			<span id="filterButtonSuperTuesday" onclick="filterButton.call(this, 'superTuesday')">super tuesday</span>
+			<span onclick="filterButton.call(this, 'trumpBiden')">trump 16 - biden 20</span>
+			<span onclick="filterButton.call(this, 'obamaTrump')">obama - trump 16</span>
+			<span id="filterButtonTicketSplit" onclick="filterButton.call(this, 'ticketSplit')">ticket split</span>
+			<span id="filterButtonUncontested" onclick="filterButton.call(this, 'uncontested')">uncontested</span>
+			<span id="filterButtonOpenSeat" onclick="filterButton.call(this, 'openSeat')">open seats</span>
+			<span onclick="filterButton.call(this, 'majorityMinority')">majority minority</span>
+			<span class="controlButtonNotselected" id="buttonPresDGop" onclick="clickBidenGop()">PRES D - GOP</span>
+			<span class="controlButtonNotselected" id="buttonPresRDem" onclick="clickTrumpDem()">PRES R - DEM</span>
+			<span id="filterButtonMargin1" onclick="filterButton.call(this, 'margin1')">margin &lt;1%</span>
+			<span id="filterButtonMargin3" onclick="filterButton.call(this, 'margin3')">margin &lt;3%</span>
+			<span id="filterButtonMargin5" onclick="filterButton.call(this, 'margin5')">margin &lt;5%</span>
+			<span id="filterButtonMargin10" onclick="filterButton.call(this, 'margin10')">margin &lt;10%</span>
+		</div>
+
+		<div id="contestsBar">
+			<span class="raceButton" onclick="zoomToContest('Iowa', 'GOP PRESIDENT')">IA GOP 01/15</span>
+			<span class="raceButton" onclick="zoomToContest('New Hampshire', 'DEM PRESIDENT')">NH DEM 01/23</span>
+			<span class="raceButton" onclick="zoomToContest('New Hampshire', 'GOP PRESIDENT')">NH GOP 01/23</span>
+			<span class="raceButton" onclick="zoomToContest('South Carolina', 'DEM PRESIDENT')">SC DEM 02/03</span>
+			<span class="raceButton" onclick="zoomToContest('Nevada', 'DEM PRESIDENT')">NV DEM 02/06</span>
+		</div>
+
+		<div id="appsBar">
+			<span class="controlButtonApp controlButtonNotselected" id="buttonPollClosing">POLL CLOSINGS</span>
+			<span class="controlButtonApp controlButtonNotselected" id="buttonRoad270">ROAD TO 270</span>
+			<span class="controlButtonApp controlButtonNotselected" id="buttonSenateWhatIf">SENATE WHAT IF</span>
+			<span class="controlButtonApp controlButtonNotselected" id="buttonProjections">PROJECTIONS</span>
+			<span class="controlButtonApp controlButtonNotselected" id="buttonGraphics">GRAPHICS</span>
+		</div>
+
+		<div id="controlBars">
+			<div id="controlBarYear"></div>
+			<div id="controlBarContest">
+				<span class="controlButton" id="buttonContest13">PRES-D</span>
+				<span class="controlButton" id="buttonContest14">PRES-R</span>
+				<span class="controlButton buttonSelected" id="buttonContest1">PRES</span>
+				<span class="controlButton" id="buttonContest3">SEN</span>
+				<span class="controlButton" id="buttonContest2">GOV</span>
+				<span class="controlButton" id="buttonContest4">HOUSE</span>
+				<span class="controlButton" id="buttonContest5">SEN S</span>
+				<span class="controlButton" id="buttonContest6">SEN R</span>
+				<span class="controlButton" id="buttonContest7">SEN SR</span>
+				<span class="controlButton" id="buttonContest8">P CD</span>
+				<span class="controlButton" id="buttonContest9">SOS</span>
+				<span class="controlButton" id="buttonContest10">LT GOV</span>
+				<span class="controlButton" id="buttonContest33">AG</span>
+				<span class="controlButton" id="buttonContest16">SEN-D</span>
+				<span class="controlButton" id="buttonContest17">SEN-R</span>
+				<span class="controlButton" id="buttonContest19">GOV-D</span>
+				<span class="controlButton" id="buttonContest20">GOV-R</span>
+				<span class="controlButton" id="buttonContest22">HOU-D</span>
+				<span class="controlButton" id="buttonContest23">HOU-R</span>
+				<span class="controlButton" id="buttonContest11">GOV RC</span>
+				<span class="controlButton" id="buttonContest12">PROP</span>
+				<span class="controlButton" id="buttonContest42">ABORT</span>
+				<span class="controlButton" id="buttonContest47">CD SP</span>
+				<span class="controlButton" id="buttonContest39">ST HD</span>
+				<span class="controlButton" id="buttonContest40">ST SD</span>
+				<span class="controlButton" id="buttonContest34">SCJ</span>
+				<span class="controlButton" id="buttonContest35">SC</span>
+				<span class="controlButton" id="buttonContest25">SOS-D</span>
+				<span class="controlButton" id="buttonContest26">SOS-R</span>
+				<span class="controlButton controlButtonInactive" id="buttonContest28">AG-D</span>
+				<span class="controlButton controlButtonInactive" id="buttonContest29">AG-R</span>
+				<span class="controlButton" id="buttonContest31">LT-D</span>
+				<span class="controlButton" id="buttonContest32">LT-R</span>
+				<span class="controlButton controlButtonInactive" id="buttonContest36">P-D 1</span>
+				<span class="controlButton controlButtonInactive" id="buttonContest37">P-D 2</span>
+				<span class="controlButton controlButtonInactive" id="buttonContest38">P-D SD</span>
+				<span class="controlButton" id="buttonContest43">WEED</span>
+				<span class="buttonFillerSlim"></span>
+			</div>
+			<div id="controlBarExtras">
+				<span class="controlButtonSlim controlButtonNotselected" style="display:none"
+					id="buttonRaceSpecial">SPECIAL</span>
+				<span class="controlButtonSlim controlButtonNotselected" style="display:none"
+					id="buttonRaceRunoff">RUNOFF</span>
+				<span class="controlButton" style="display:none" id="buttonPrev">PREV</span>
+				<span class="controlButton" style="display:none" id="buttonNext">NEXT</span>
+				<span class="buttonFillerSlim" style="display:none"></span>
+				<span class="controlButtonSlim controlButtonNotselected" id="buttonHistory">HIST</span>
+				<span class="controlButtonSlim controlButtonNotselected" id="buttonCounty">COUNTY</span>
+				<span class="buttonFillerSlim"></span>
+				<span class="controlButtonSlim" id="buttonHouseGroups" style="display:none">CD PANEL</span>
+				<span class="controlButtonSlim controlButtonNotselected" id="buttonTotalPanel">EV PANEL</span>
+				<span class="controlButtonSlim controlButtonNotselected" id="buttonShowVoteType">ELCTRL</span>
+			</div>
+		</div>
+
+		<div id="controlBar270">
+			<span id="controlBar270Presets">
+				<span class="controlButton" id="button270-clear">CL</span>
+				<span class="controlButton" id="button270-safe">SAFE</span>
+				<span class="controlButton" id="button270-proj">PROJ</span>
+				<span class="controlButton" id="button270-2020">2020</span>
+				<span class="controlButton" id="button270-2016">2016</span>
+			</span>
+			<span id="controlBar270Party">
+				<span class="partyButton" id="button270-party-magic" data-party="m">⚡</span>
+				<span class="partyButton" id="button270-party-dem" data-party="d">D</span>
+				<span class="partyButton" id="button270-party-gop" data-party="r">R</span>
+				<span class="partyButton" id="button270-party-tossup" data-party="t">T</span>
+				<span class="partyButton" id="button270-party-battleground" data-party="b">B</span>
+			</span>
+		</div>
+
+		<div id="controlBarPollClosings"></div>
+
+		<div id="controlBarSenateWhatIf">
+			<span class="controlButton" onclick="updateSenateWhatIf()">RESET</span>
+			<span class="controlButton">COMP</span>
+		</div>
+
+		<div id="controlBarFixed">
+			<span id="controlButtonRemoveFilters" onclick="removeFilters()">CL</span>
+			<span class="controlButtonSlimFixed controlButtonNotselected" id="clearDraw"
+				onclick="clearDrawing()">CLEAR</span>
+			<span class="controlButton controlButtonNotselected" id="buttonDraw" onclick="clickPen()">
+				<svg class="unselectable" viewBox="0 -110 732 732">
+					<path class="unselectable" id="drawIcon"
+						d="M731 68 214 430 117 362 634 0 731 68ZM94 391 0 512 173 446Z" />
+				</svg>
+			</span>
+			<span class="buttonFillerSlim buttonFillerGrow"></span>
+			<span class="controlButtonSlimFixed controlButtonNotselected" style="display:none"
+				id="buttonDemographics">DEM</span>
+			<span class="controlButtonSlimFixed controlButtonNotselected" id="buttonStats"
+				onclick="clickStats()">STATS</span>
+			<span class="controlButtonSlimFixed controlButtonNotselected" id="buttonFilters"
+				onclick="clickFilters()">FILTER</span>
+			<span class="controlButtonSlim controlButtonNotselected" style="display:none" id="buttonRaces"
+				onclick="clickContests()">RACES</span>
+			<span class="controlButtonSlimFixed controlButtonNotselected" id="buttonApps"
+				onclick="clickApps()">APPS</span>
+			<span class="controlButton" id="buttonRefresh" onclick="refreshPage()" style="display:none">RELOAD</span>
+		</div>
+
+		<div id="controlBarPen">
+
+		</div>
+
+		<div id="headingBox" onclick="returnHome()"></div>
+		<div id="headingText">
+			<span id="headingTextContest"></span>
+			<span id="headingTextTitle"></span>
+			<span id="headingTextSubtitle"></span>
+			<span id="headingTextSubtitleTwin"></span>
+			<span id="headingTextDetail"></span>
+			<span id="headingPollClosing">
+				<span id="headingTextPollClosing">
+					<span id="headingTextPollClosingHour"></span>
+					<span id="headingTextPollClosingDetails">
+						<span id="headingTextPollClosingPM"></span>
+						<span id="headingTextPollClosingET"></span>
+					</span>
+				</span>
+				<span id="headingTextPollClosingText">POLL CLOSINGS</span>
+			</span>
+			<span id="headingElectoralVotes">
+				<span id="headingElectoralVotesNumber"></span>
+				<span id="headingElectoralVotesText"></span>
+			</span>
+		</div>
+
+		<div id="headingBoxRoadTo270" onclick="clickApps()">
+			<img id="headingRoadTo270" src="assets/images/roadMap.webp" alt="Road Map heading">
+		</div>
+
+		<div id="appHeadingBox" onclick="clickApps()">
+			<span id="headingSenateWhatIf">SENATE WHAT IF</span>
+			<span id="headingPresidentProjections">STRONGHOLDS AND BATTLEGROUNDS</span>
+		</div>
+
+		<div id="appPresidentProjections">
+			<span class="head">Safe Biden</span>
+			<span class="head">Lean Biden</span>
+			<span class="head">Toss Up</span>
+			<span class="head">Lean Trump</span>
+			<span class="head">Safe Trump</span>
+		
+			<div class="projGroup" data-rating="solid-d"></div>
+			<div class="projGroup" data-rating="lean-d"></div>
+			<div class="projGroup" data-rating="toss-up"></div>
+			<div class="projGroup" data-rating="lean-r"></div>
+			<div class="projGroup" data-rating="solid-r"></div>
+		</div>
+
+		<div id="appSenateWhatIfGrid">
+			<div class="gridDivider" id="divA"></div>
+			<div class="gridDivider" id="divB"></div>
+			<div class="senateTally g1">
+				<span class="tallyFig">0</span><span class="tallyDesc">Democrats</span>
+			</div>
+			<div class="senateTally g2">
+				<span class="tallyFig">0</span><span class="tallyDesc">Unassigned</span>
+			</div>
+			<div class="senateTally g3">
+				<span class="tallyFig">0</span><span class="tallyDesc">Republicans</span>
+			</div>
+			<div id="gridLeft" class="col"></div>
+			<div id="gridCenter" class="col"></div>
+			<div id="gridRight" class="col"></div>
+		</div>
+
+		<div id="appGraphics">
+			<span id="appGraphics_bkgd"></span>
+			<span id="appGraphics_bkgd_gradient"></span>
+
+			<span id="appGraphics_imageBox_dem" class="aG_imageBox"></span>
+			<span id="appGraphics_imageBox_rep" class="aG_imageBox"></span>
+			<img id="appGraphics_biden" src="assets/images/candidates/biden.png" alt="Biden image">
+			<img id="appGraphics_trump" src="assets/images/candidates/trump.png" alt="Trump image">
+			<span id="appGraphics_imageBorder_dem" class="aG_imageBorder"></span>
+			<span id="appGraphics_imageBorder_rep" class="aG_imageBorder"></span>
+
+			<span id="appGraphics_heading"></span>
+			<div id="appGraphics_text">
+				<span id="appGraphics_tick">ü</span>
+				<span id="appGraphics_projWinner">PROJECTED<br>WINNER</span>
+				<span id="appGraphics_candName">JOE<br>BIDEN</span>
+			</div>
+			<span id="appGraphics_tetc_text">TOO EARLY TO CALL</span>
+		</div>
+	</div>
+	
+	<script src="assets/scripts/jquery.min.js"></script>
+	<script src="assets/scripts/d3.v7.js"></script>
+	<script src="assets/scripts/topojson.js"></script>
+	<script src="assets/scripts/sortable.js"></script>
+	<script src="assets/scripts/moment.js"></script>
+	<script src="assets/scripts/gScrollNumber.js"></script>
+	<script src="assets/scripts/geotoolbox.js"></script>
+	<script src="electoral.js"></script>
+</body>
+</html>

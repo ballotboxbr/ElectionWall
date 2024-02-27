@@ -1,0 +1,150 @@
+AR HOUSE 4 Primary Dem 2024
+https://data.ddhq.io/25450
+
+https://data.ddhq.io/25443
+
+NV GOP CAUCUS 2024
+https://data.ddhq.io/25442
+
+NH GOP PRIMARY 2016
+https://data.ddhq.io/25650
+
+NJ 2016 GOP PRIMARY
+https://data.ddhq.io/25343
+
+NH DEM PRIMARY 2024
+https://data.ddhq.io/25396
+
+NH GOP PRIMARY 2024
+https://data.ddhq.io/25650
+
+2024 IA CAUCUS GOP
+https://data.ddhq.io/25394
+
+2024 SC GOP
+https://data.ddhq.io/25404
+2024 NV GOP
+https://data.ddhq.io/25403
+2024 NV DEM
+https://data.ddhq.io/25402
+2024 SC DEM
+https://data.ddhq.io/25401
+
+
+importDDHQ("https://data.ddhq.io/25650","2023");
+
+DDHQ CONTEST TYPES
+
+{1:"general",2:"primary",3:"presidential primary",5:"runoff",6:"jungle",8:"special primary",9:"special general",10:"presidential primary",12:"presidential primary"}
+
+https://maps.ddhq.io/2022/counties.json
+
+const nonLocalOfficeIDs = [
+  1,   // President
+  2,   // Governor
+  3,   // US House
+  4,   // US Senate
+  8,   // Lt. Governor
+  9,   // State House
+  10,  // State Senate
+  27,  // Attorney General
+  28,  // State Superintendent of Public Instruction
+  30,  // State Supreme Court
+  39,  // Secretary of State
+  132, // Commonwealth Court
+  133, // State Superior Court
+  134, // Comptroller
+  135, // Auditor
+  136, // Agriculture Commissioner
+  137, // Corporation Commissioner
+  138, // Labor Commissioner
+  139, // Superintendent of Public Instruction
+  140, // Public Service Commissioner
+  141, // Mine Inspector
+  142, // Public Lands Commissioner
+  143, // Controller
+  144, // Insurance Commissioner
+  145, // Tax Commissioner
+  146, // Treasurer
+  147, // Superintendent of Education
+  148, // Public Utilities Commissioner
+  149, // General Land Office Commissioner
+  150, // Railroad Commissioner
+  151, // State Board of Education
+];
+
+
+onst state = {
+  colors: {
+    status: {
+      none: '#666666',
+      active: '#D84B44',
+      done: '#57AEA6',
+      called: '#57AEA6'
+    },
+    party: {
+      Democratic: 'var(--dem-color)',
+      Republican: 'var(--gop-color)',
+      Green: 'var(--gre-color)',
+      Libertarian: 'var(--lib-color)',
+      Progressive: 'var(--prog-color)',
+      Independent: 'var(--ind-color)',
+      "United Utah": "var(--uu-color)",
+      Other: 'var(--oth-color)'
+    },
+    primary: {
+      republican: [
+        '#F03434',
+        '#F9BF3B',
+        '#F9690E',
+        '#F1A9A0',
+        '#D24D57',
+        '#DB0A5B',
+        '#F62459',
+        '#FDE3A7',
+        '#F2784B',
+        '#96281B',
+        '#EB974E',
+        '#FF5252',
+        '#C51162',
+        '#FFFF8D',
+        '#F64747'
+      ],
+      republicanCustom: [],
+      democratic: [
+        '#2574A9',
+        '#87D37C',
+        '#000764',
+        '#00B8D4',
+        '#A1887F',
+        '#D7CCC8',
+        '#00DEFF',
+        '#ABB7B7',
+        '#AEA8D3',
+        '#9A12B3',
+        '#2ECC71',
+        '#C5EFF7',
+        '#663399',
+        '#52B3D9',
+        '#90A4AE',
+        '#1DE9B6',
+        '#C5EBE2'
+      ],
+      democraticCustom: [],
+      candidateOverrides: {
+        12691: "#e57373", // Daniel Kelly
+        48471: "#4dd0e1", // Janet Protasiewicz
+        11868: "#96281b", // Daniel Cameron
+        49574: "#9575cd", // Kelly Craft
+        49580: "#00796b", // Ryan Quarles
+        49575: "#E1BEE7", // Eric Deters
+      }
+    }
+  }
+}
+
+
+
+
+
+$(".historyPanelTitle").css("height", "15vh");

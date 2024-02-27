@@ -1,0 +1,192 @@
+COUNTY 
+
+clip bbox=-180,0,-30,100
+filter 'STATEFP != 69'
+filter 'STATEFP != 66'
+filter 'STATEFP != 78'
+filter 'STATEFP != 60'
+filter 'STATEFP != 72'
+
+proj wgs84
+rename-fields countyname=NAMELSAD,county=NAME,countytype=LSAD,statefips=STATEFP,id=GEOID,stateabbreviation=STUSPS,state=STATE_NAME
+filter-fields state,stateabbreviation,statefips,county,countyname,countytype,id
+sort id
+simplify interval=500 keep-shapes no-repair
+clean
+-o id-field=id format=topojson extension=topojson
+
+STATE
+
+
+clip bbox=-180,0,-30,100
+proj wgs84
+rename-fields stateabbreviation=STUSPS,statefips=STATEFP,state=NAME
+filter-fields state,stateabbreviation,statefips
+sort state
+simplify interval=500 keep-shapes no-repair
+clean
+-o id-field=state format=topojson extension=topojson
+
+TOWNSHIP
+
+proj albersusa
+clean
+proj wgs84
+-each 'countyfips = STATEFP + COUNTYFP'
+rename-fields stateabbreviation=STUSPS,statefips=STATEFP,state=STATE_NAME,township=NAME,id=GEOID,townshiptype=LSAD
+filter-fields state,stateabbreviation,statefips,countyfips,township,id,townshiptype
+dissolve2 id copy-fields=stateabbreviation,statefips,state,township,id,countyfips,townshiptype
+filter-slivers min-area=0.5km2
+sort id
+simplify interval=500 keep-shapes no-repair
+
+
+-each target=* 'if(DISTRICT == "0") {districtnumber = "01"} else if (DISTRICT < 10){districtnumber = "00" + DISTRICT; districtatlarge = "false"} else {districtnumber = "0" + DISTRICT; districtatlarge = "false"}' 
+
+
+
+CD
+
+// data-districtatlarge="true"
+
+merge-layers target=*
+
+clean allow-overlaps
+proj wgs84
+
+-each target=* 'if(district == "0") {districtnumber = "01"; districtatlarge = "true"} else if (district < 10){districtnumber = "0" + district; districtatlarge = "false"} else {districtnumber = district; districtatlarge = "false"}' 
+
+-each 'var cd = "cd "; var congressCount = endcong - startcong; for (var i = 0; i <= congressCount; i++) {cd+= "cd"; cd += (((startcong * 2) + 1786)+(i*2)).toString().substr(2,4); cd+= " ";}'
+
+
+-each 'if (statename == "Alabama") {stateabbreviation = "AL"} else if (statename == "Alaska") {stateabbreviation = "AK"} else if (statename == "Arizona") {stateabbreviation = "AZ"} else if (statename == "Arkansas") {stateabbreviation = "AR"} else if (statename == "California") {stateabbreviation = "CA"} else if (statename == "Colorado") {stateabbreviation = "CO"} else if (statename == "Connecticut") {stateabbreviation = "CT"} else if (statename == "Delaware") {stateabbreviation = "DE"} else if (statename == "District of Columbia") {stateabbreviation = "DC"} else if (statename == "Florida") {stateabbreviation = "FL"} else if (statename == "Georgia") {stateabbreviation = "GA"} else if (statename == "Hawaii") {stateabbreviation = "HI"} else if (statename == "Idaho") {stateabbreviation = "ID"} else if (statename == "Illinois") {stateabbreviation = "IL"} else if (statename == "Indiana") {stateabbreviation = "IN"} else if (statename == "Iowa") {stateabbreviation = "IA"} else if (statename == "Kansas") {stateabbreviation = "KS"} else if (statename == "Kentucky") {stateabbreviation = "KY"} else if (statename == "Louisiana") {stateabbreviation = "LA"} else if (statename == "Maine") {stateabbreviation = "ME"} else if (statename == "Maryland") {stateabbreviation = "MD"} else if (statename == "Massachusetts") {stateabbreviation = "MA"} else if (statename == "Michigan") {stateabbreviation = "MI"} else if (statename == "Minnesota") {stateabbreviation = "MN"} else if (statename == "Mississippi") {stateabbreviation = "MS"} else if (statename == "Missouri") {stateabbreviation = "MO"} else if (statename == "Montana") {stateabbreviation = "MT"} else if (statename == "Nebraska") {stateabbreviation = "NE"} else if (statename == "Nevada") {stateabbreviation = "NV"} else if (statename == "New Hampshire") {stateabbreviation = "NH"} else if (statename == "New Jersey") {stateabbreviation = "NJ"} else if (statename == "New Mexico") {stateabbreviation = "NM"} else if (statename == "New York") {stateabbreviation = "NY"} else if (statename == "North Carolina") {stateabbreviation = "NC"} else if (statename == "North Dakota") {stateabbreviation = "ND"} else if (statename == "Ohio") {stateabbreviation = "OH"} else if (statename == "Oklahoma") {stateabbreviation = "OK"} else if (statename == "Oregon") {stateabbreviation = "OR"} else if (statename == "Pennsylvania") {stateabbreviation = "PA"} else if (statename == "Rhode Island") {stateabbreviation = "RI"} else if (statename == "South Carolina") {stateabbreviation = "SC"} else if (statename == "South Dakota") {stateabbreviation = "SD"} else if (statename == "Tennessee") {stateabbreviation = "TN"} else if (statename == "Texas") {stateabbreviation = "TX"} else if (statename == "Utah") {stateabbreviation = "UT"} else if (statename == "Vermont") {stateabbreviation = "VT"} else if (statename == "Virginia") {stateabbreviation = "VA"} else if (statename == "Washington") {stateabbreviation = "WA"} else if (statename == "West Virginia") {stateabbreviation = "WV"} else if (statename == "Wisconsin") {stateabbreviation = "WI"} else if (statename == "Wyoming") {stateabbreviation = "WY"}'
+
+-each 'district = stateabbreviation + "-" + districtnumber'
+-rename-fields 'state=statename'
+
+
+
+filter-fields state,stateabbreviation,district,districtnumber,cd,districtatlarge
+
+simplify interval=1000 keep-shapes no-repair
+clean allow-overlaps
+-o id-field=district format=topojson extension=topojson
+
+merge-layers target=*
+
+
+
+filter-fields state,stateabbreviation,district,districtnumber,startcong,endcong,districtatlarge
+
+{"95":76,"96":78,"97":80,"98":82,"99":84,"100":86,"101":88,"102":90,"103":92,"104":94,"105":96,"106":98,"107":00,"108":02,"109":04,"110":06,"111":08,"112":10,"113":12,"114":14,"115":16,"116":18,"117":,"118":22}
+
+-each 'if (STATEFP == "01") {state = "Alabama"; stateabbreviation = "AL"} else if (STATEFP == "02") {state = "Alaska"; stateabbreviation = "AK"} else if (STATEFP == "04") {state = "Arizona"; stateabbreviation = "AZ"} else if (STATEFP == "05") {state = "Arkansas"; stateabbreviation = "AR"} else if (STATEFP == "06") {state = "California"; stateabbreviation = "CA"} else if (STATEFP == "08") {state = "Colorado"; stateabbreviation = "CO"} else if (STATEFP == "09") {state = "Connecticut"; stateabbreviation = "CT"} else if (STATEFP == "10") {state = "Delaware"; stateabbreviation = "DE"} else if (STATEFP == "11") {state = "District of Columbia"; stateabbreviation = "DC"} else if (STATEFP == "12") {state = "Florida"; stateabbreviation = "FL"} else if (STATEFP == "13") {state = "Georgia"; stateabbreviation = "GA"} else if (STATEFP == "15") {state = "Hawaii"; stateabbreviation = "HI"} else if (STATEFP == "16") {state = "Idaho"; stateabbreviation = "ID"} else if (STATEFP == "17") {state = "Illinois"; stateabbreviation = "IL"} else if (STATEFP == "18") {state = "Indiana"; stateabbreviation = "IN"} else if (STATEFP == "19") {state = "Iowa"; stateabbreviation = "IA"} else if (STATEFP == "20") {state = "Kansas"; stateabbreviation = "KS"} else if (STATEFP == "21") {state = "Kentucky"; stateabbreviation = "KY"} else if (STATEFP == "22") {state = "Louisiana"; stateabbreviation = "LA"} else if (STATEFP == "23") {state = "Maine"; stateabbreviation = "ME"} else if (STATEFP == "24") {state = "Maryland"; stateabbreviation = "MD"} else if (STATEFP == "25") {state = "Massachusetts"; stateabbreviation = "MA"} else if (STATEFP == "26") {state = "Michigan"; stateabbreviation = "MI"} else if (STATEFP == "27") {state = "Minnesota"; stateabbreviation = "MN"} else if (STATEFP == "28") {state = "Mississippi"; stateabbreviation = "MS"} else if (STATEFP == "29") {state = "Missouri"; stateabbreviation = "MO"} else if (STATEFP == "30") {state = "Montana"; stateabbreviation = "MT"} else if (STATEFP == "31") {state = "Nebraska"; stateabbreviation = "NE"} else if (STATEFP == "32") {state = "Nevada"; stateabbreviation = "NV"} else if (STATEFP == "33") {state = "New Hampshire"; stateabbreviation = "NH"} else if (STATEFP == "34") {state = "New Jersey"; stateabbreviation = "NJ"} else if (STATEFP == "35") {state = "New Mexico"; stateabbreviation = "NM"} else if (STATEFP == "36") {state = "New York"; stateabbreviation = "NY"} else if (STATEFP == "37") {state = "North Carolina"; stateabbreviation = "NC"} else if (STATEFP == "38") {state = "North Dakota"; stateabbreviation = "ND"} else if (STATEFP == "39") {state = "Ohio"; stateabbreviation = "OH"} else if (STATEFP == "40") {state = "Oklahoma"; stateabbreviation = "OK"} else if (STATEFP == "41") {state = "Oregon"; stateabbreviation = "OR"} else if (STATEFP == "42") {state = "Pennsylvania"; stateabbreviation = "PA"} else if (STATEFP == "44") {state = "Rhode Island"; stateabbreviation = "RI"} else if (STATEFP == "45") {state = "South Carolina"; stateabbreviation = "SC"} else if (STATEFP == "46") {state = "South Dakota"; stateabbreviation = "SD"} else if (STATEFP == "47") {state = "Tennessee"; stateabbreviation = "TN"} else if (STATEFP == "48") {state = "Texas"; stateabbreviation = "TX"} else if (STATEFP == "49") {state = "Utah"; stateabbreviation = "UT"} else if (STATEFP == "50") {state = "Vermont"; stateabbreviation = "VT"} else if (STATEFP == "51") {state = "Virginia"; stateabbreviation = "VA"} else if (STATEFP == "53") {state = "Washington"; stateabbreviation = "WA"} else if (STATEFP == "54") {state = "West Virginia"; stateabbreviation = "WV"} else if (STATEFP == "55") {state = "Wisconsin"; stateabbreviation = "WI"} else if (STATEFP == "56") {state = "Wyoming"; stateabbreviation = "WY"}'
+
+-each 'if(district == "0") {districtnumber == "01"; districtatlarge == true} else {districtnumber = district; districtatlarge == null}'
+-each 'district = stateabbreviation + "-" + districtnumber'
+
+-each 'if (stateabbreviation == "FL" || stateabbreviation == "NC" || stateabbreviation == "VA") {congress = "cd cd12 cd14"} else if (stateabbreviation == "PA") {congress = "cd cd12 cd14 cd16"} else {congress = "cd cd12 cd14 cd16 cd18 cd20"}'
+
+filter-fields state,stateabbreviation,district,districtnumber,congress,districtatlarge
+dissolve2 district copy-fields=state,stateabbreviation,district,districtnumber,congress,districtatlarge
+
+sort district
+-o id-field=district format=topojson extension=topojson
+
+
+-each 'var numProps = this.properties.congresscount; var startCD = this.properties.startcong; var congresses = {"95":76,"96":78,"97":80,"98":82,"99":84,"100":86,"101":88,"102":90,"103":92,"104":94,"105":96,"106":98,"107":00,"108":02,"109":04,"110":06,"111":08,"112":10,"113":12,"114":14,"115":16,"116":18,"117":20,"118":22}; for (var i = congresses[startCD]; i <= numProps; i++) {$cd = congresses[i]}'
+
+
+mapshaper input.shp -each 'this.setProperty("prop1", "new_value");'
+
+$ -each 'var cd = "cd "; var congressCount = endcong - startcong; for (var i = 1; i <= congressCount; i++) {cd += (((startcong*2) + 1786)+i).substr(2,4); cd+= " "}'
+
+-each 'var cd = "cd "; var congressCount = endcong - startcong; for (var i = 0; i < congressCount; i++) {cd+= "cd"; cd += (((startcong * 2) + 1786)+(i*2)).toString().substr(2,4); cd+= " ";}'
+
+
+cd = ((startcong*2) + 1786).substr(2,4)
+
+$ -each 'concatenated = ""; forEachProperty(function(name, val) { if (name.startsWith("s")) { concatenated += val; delete this[name]; } });'
+
+
+var districtFiles = ["assets/maps/districts4.topojson"];
+
+districtFiles.forEach(function(url) {
+	var objectName = url.split("/").pop().split(".")[0];
+
+	d3.json(url)
+		.then(function(topo) {
+			var geojson = topojson.feature(topo, topo.objects[objectName]);
+			var path = d3.geoPath(d3.geoMercatorUsa());
+
+			var g = d3.select("#nationalMap")
+				.append("g");
+			var paths = g.selectAll("path")
+				.data(geojson.features)
+				.enter()
+				.append("path")
+				.attr("d", path)
+				.attr("class", function(d) {return d.properties.cd})
+				.attr("id", function(d) {return d.properties.id})
+				.attr("data-district", function(d) {return d.properties.district})
+				.attr("data-districtnumber", function(d) {return d.properties.districtnumber})
+				.attr("data-districtatlarge", function(d) {return d.properties.districtatlarge})
+				.attr("data-state", function(d) {return d.properties.state})
+				.attr("data-statefips", function(d) {return d.properties.statefips})
+				.attr("data-stateabbreviation", function(d) {return d.properties.stateabbreviation});
+
+			var gA = d3.select("#nationalMap").select("g");
+			gA.selectAll("*").each(function() {d3.select(gA.node().parentNode).append(() => this)});
+			gA.remove();
+		});
+});
+
+setHouseSVG();
+
+
+-filter 'STATEFP !== "42" && STATEFP !== "51" && STATEFP !== "12"  && STATEFP !== "37"'
+
+
+
+
+
+
+CLEAN 2000 MAP
+filter "STATEFP !== '11'"
+filter "STATEFP !== '02'"
+filter "STATEFP !== '72'"
+
+filter "STATEFP !== '24'"
+filter "STATEFP !== '48'"
+filter "STATEFP !== '12'"
+
+filter "districtatlarge !== 'true'"
+clean
+
+-each 'district = +CD111FP'
+-each 'if(district == "0") {districtnumber = "01"; districtatlarge = "true"} else if (district < 10){districtnumber = "0" + district; districtatlarge = "false"} else {districtnumber = district; districtatlarge = "false"}' 
+
+
+-each 'STATEFP = STATEFP10'
+
+-each 'if (STATEFP == "01") {state = "Alabama"; stateabbreviation = "AL"} else if (STATEFP == "02") {state = "Alaska"; stateabbreviation = "AK"} else if (STATEFP == "04") {state = "Arizona"; stateabbreviation = "AZ"} else if (STATEFP == "05") {state = "Arkansas"; stateabbreviation = "AR"} else if (STATEFP == "06") {state = "California"; stateabbreviation = "CA"} else if (STATEFP == "08") {state = "Colorado"; stateabbreviation = "CO"} else if (STATEFP == "09") {state = "Connecticut"; stateabbreviation = "CT"} else if (STATEFP == "10") {state = "Delaware"; stateabbreviation = "DE"} else if (STATEFP == "11") {state = "District of Columbia"; stateabbreviation = "DC"} else if (STATEFP == "12") {state = "Florida"; stateabbreviation = "FL"} else if (STATEFP == "13") {state = "Georgia"; stateabbreviation = "GA"} else if (STATEFP == "15") {state = "Hawaii"; stateabbreviation = "HI"} else if (STATEFP == "16") {state = "Idaho"; stateabbreviation = "ID"} else if (STATEFP == "17") {state = "Illinois"; stateabbreviation = "IL"} else if (STATEFP == "18") {state = "Indiana"; stateabbreviation = "IN"} else if (STATEFP == "19") {state = "Iowa"; stateabbreviation = "IA"} else if (STATEFP == "20") {state = "Kansas"; stateabbreviation = "KS"} else if (STATEFP == "21") {state = "Kentucky"; stateabbreviation = "KY"} else if (STATEFP == "22") {state = "Louisiana"; stateabbreviation = "LA"} else if (STATEFP == "23") {state = "Maine"; stateabbreviation = "ME"} else if (STATEFP == "24") {state = "Maryland"; stateabbreviation = "MD"} else if (STATEFP == "25") {state = "Massachusetts"; stateabbreviation = "MA"} else if (STATEFP == "26") {state = "Michigan"; stateabbreviation = "MI"} else if (STATEFP == "27") {state = "Minnesota"; stateabbreviation = "MN"} else if (STATEFP == "28") {state = "Mississippi"; stateabbreviation = "MS"} else if (STATEFP == "29") {state = "Missouri"; stateabbreviation = "MO"} else if (STATEFP == "30") {state = "Montana"; stateabbreviation = "MT"} else if (STATEFP == "31") {state = "Nebraska"; stateabbreviation = "NE"} else if (STATEFP == "32") {state = "Nevada"; stateabbreviation = "NV"} else if (STATEFP == "33") {state = "New Hampshire"; stateabbreviation = "NH"} else if (STATEFP == "34") {state = "New Jersey"; stateabbreviation = "NJ"} else if (STATEFP == "35") {state = "New Mexico"; stateabbreviation = "NM"} else if (STATEFP == "36") {state = "New York"; stateabbreviation = "NY"} else if (STATEFP == "37") {state = "North Carolina"; stateabbreviation = "NC"} else if (STATEFP == "38") {state = "North Dakota"; stateabbreviation = "ND"} else if (STATEFP == "39") {state = "Ohio"; stateabbreviation = "OH"} else if (STATEFP == "40") {state = "Oklahoma"; stateabbreviation = "OK"} else if (STATEFP == "41") {state = "Oregon"; stateabbreviation = "OR"} else if (STATEFP == "42") {state = "Pennsylvania"; stateabbreviation = "PA"} else if (STATEFP == "44") {state = "Rhode Island"; stateabbreviation = "RI"} else if (STATEFP == "45") {state = "South Carolina"; stateabbreviation = "SC"} else if (STATEFP == "46") {state = "South Dakota"; stateabbreviation = "SD"} else if (STATEFP == "47") {state = "Tennessee"; stateabbreviation = "TN"} else if (STATEFP == "48") {state = "Texas"; stateabbreviation = "TX"} else if (STATEFP == "49") {state = "Utah"; stateabbreviation = "UT"} else if (STATEFP == "50") {state = "Vermont"; stateabbreviation = "VT"} else if (STATEFP == "51") {state = "Virginia"; stateabbreviation = "VA"} else if (STATEFP == "53") {state = "Washington"; stateabbreviation = "WA"} else if (STATEFP == "54") {state = "West Virginia"; stateabbreviation = "WV"} else if (STATEFP == "55") {state = "Wisconsin"; stateabbreviation = "WI"} else if (STATEFP == "56") {state = "Wyoming"; stateabbreviation = "WY"}'
+
+-each 'district = stateabbreviation + "-" + districtnumber'
+filter-fields state,stateabbreviation,district,districtnumber,congress,districtatlarge
+simplify interval=500 keep-shapes no-repair
+
+clip source=states target=cd no-replace name=districts
+
+sort district
+-o format=topojson extension=topojson id-field=district target=districts
+
+
+
+-each 'if (STATEFP == "01") {state = "Alabama"; stateabbreviation = "AL"} else if (STATEFP == "02") {state = "Alaska"; stateabbreviation = "AK"} else if (STATEFP == "04") {state = "Arizona"; stateabbreviation = "AZ"} else if (STATEFP == "05") {state = "Arkansas"; stateabbreviation = "AR"} else if (STATEFP == "06") {state = "California"; stateabbreviation = "CA"} else if (STATEFP == "08") {state = "Colorado"; stateabbreviation = "CO"} else if (STATEFP == "09") {state = "Connecticut"; stateabbreviation = "CT"} else if (STATEFP == "10") {state = "Delaware"; stateabbreviation = "DE"} else if (STATEFP == "11") {state = "District of Columbia"; stateabbreviation = "DC"} else if (STATEFP == "12") {state = "Florida"; stateabbreviation = "FL"} else if (STATEFP == "13") {state = "Georgia"; stateabbreviation = "GA"} else if (STATEFP == "15") {state = "Hawaii"; stateabbreviation = "HI"} else if (STATEFP == "16") {state = "Idaho"; stateabbreviation = "ID"} else if (STATEFP == "17") {state = "Illinois"; stateabbreviation = "IL"} else if (STATEFP == "18") {state = "Indiana"; stateabbreviation = "IN"} else if (STATEFP == "19") {state = "Iowa"; stateabbreviation = "IA"} else if (STATEFP == "20") {state = "Kansas"; stateabbreviation = "KS"} else if (STATEFP == "21") {state = "Kentucky"; stateabbreviation = "KY"} else if (STATEFP == "22") {state = "Louisiana"; stateabbreviation = "LA"} else if (STATEFP == "23") {state = "Maine"; stateabbreviation = "ME"} else if (STATEFP == "24") {state = "Maryland"; stateabbreviation = "MD"} else if (STATEFP == "25") {state = "Massachusetts"; stateabbreviation = "MA"} else if (STATEFP == "26") {state = "Michigan"; stateabbreviation = "MI"} else if (STATEFP == "27") {state = "Minnesota"; stateabbreviation = "MN"} else if (STATEFP == "28") {state = "Mississippi"; stateabbreviation = "MS"} else if (STATEFP == "29") {state = "Missouri"; stateabbreviation = "MO"} else if (STATEFP == "30") {state = "Montana"; stateabbreviation = "MT"} else if (STATEFP == "31") {state = "Nebraska"; stateabbreviation = "NE"} else if (STATEFP == "32") {state = "Nevada"; stateabbreviation = "NV"} else if (STATEFP == "33") {state = "New Hampshire"; stateabbreviation = "NH"} else if (STATEFP == "34") {state = "New Jersey"; stateabbreviation = "NJ"} else if (STATEFP == "35") {state = "New Mexico"; stateabbreviation = "NM"} else if (STATEFP == "36") {state = "New York"; stateabbreviation = "NY"} else if (STATEFP == "37") {state = "North Carolina"; stateabbreviation = "NC"} else if (STATEFP == "38") {state = "North Dakota"; stateabbreviation = "ND"} else if (STATEFP == "39") {state = "Ohio"; stateabbreviation = "OH"} else if (STATEFP == "40") {state = "Oklahoma"; stateabbreviation = "OK"} else if (STATEFP == "41") {state = "Oregon"; stateabbreviation = "OR"} else if (STATEFP == "42") {state = "Pennsylvania"; stateabbreviation = "PA"} else if (STATEFP == "44") {state = "Rhode Island"; stateabbreviation = "RI"} else if (STATEFP == "45") {state = "South Carolina"; stateabbreviation = "SC"} else if (STATEFP == "46") {state = "South Dakota"; stateabbreviation = "SD"} else if (STATEFP == "47") {state = "Tennessee"; stateabbreviation = "TN"} else if (STATEFP == "48") {state = "Texas"; stateabbreviation = "TX"} else if (STATEFP == "49") {state = "Utah"; stateabbreviation = "UT"} else if (STATEFP == "50") {state = "Vermont"; stateabbreviation = "VT"} else if (STATEFP == "51") {state = "Virginia"; stateabbreviation = "VA"} else if (STATEFP == "53") {state = "Washington"; stateabbreviation = "WA"} else if (STATEFP == "54") {state = "West Virginia"; stateabbreviation = "WV"} else if (STATEFP == "55") {state = "Wisconsin"; stateabbreviation = "WI"} else if (STATEFP == "56") {state = "Wyoming"; stateabbreviation = "WY"}'
+
+-each 'statefips = STATEFP'
+-each 'district = SLDUST'
+-each 'districtnumber = SLDUST'
+-each 'district = stateabbreviation + "-" + districtnumber'
+-each 'sd = "sd sd23"'
+filter-fields state,stateabbreviation,district,districtnumber,sd

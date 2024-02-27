@@ -1,0 +1,30 @@
+var data_house_rep = {
+
+"2020-CO-03":{"cand1_firstname":"Lauren","cand1_lastname":"Boebert","cand1_party":"r10","cand1_vote":58678,
+"cand2_firstname":"Scott","cand2_lastname":"Tipton","cand2_party":"r1","cand2_vote":48805,
+"total_vote":107483,"winner":"r10","incumbent":"cand2","gain":1},
+
+"2022-TX-01":{"cand1_firstname":"Nathaniel","cand1_lastname":"Moran","cand1_party":"r1","cand1_vote":51312,
+"cand2_firstname":"Joe","cand2_lastname":"McDaniel","cand2_party":"r2","cand2_vote":19708,
+"cand3_firstname":"A.D.","cand3_lastname":"Atholi","cand3_party":"r3","cand3_vote":6186,
+"cand4_firstname":"John","cand4_lastname":"Porro","cand4_party":"r4","cand4_vote":4238,
+"total_vote":81444,"winner":"r1"},
+"2024-AL-01":{"cand1_firstname":"Jerry","cand1_lastname":"Carl","cand1_party":"r1","cand1_vote":0,
+"cand2_firstname":"Barry","cand2_lastname":"Moore","cand2_party":"r2","cand2_vote":0,
+"total_vote":0,"winner":"","incumbent":"cand1"},
+
+"2024-AL-02":{"cand1_firstname":"Greg","cand1_lastname":"Albritton","cand1_party":"r1","cand1_vote":0,"cand2_firstname":"Dick","cand2_lastname":"Brewbaker","cand2_party":"r2","cand2_vote":0,"cand3_firstname":"Caroleene","cand3_lastname":"Dobson","cand3_party":"r3","cand3_vote":0,"cand4_firstname":"Karla","cand4_lastname":"DuPriest","cand4_party":"r4","cand4_vote":0,"cand5_firstname":"Wallace","cand5_lastname":"Gilberry","cand5_party":"r5","cand5_vote":0,"cand6_firstname":"Hampton","cand6_lastname":"Harris","cand6_party":"r6","cand6_vote":0,"cand7_firstname":"Stacey","cand7_lastname":"Shepperson","cand7_party":"r7","cand7_vote":0,"cand8_firstname":"Belinda","cand8_lastname":"Thomas","cand8_party":"r8","cand8_vote":0,"total_vote":0,"winner":""},
+"2024-AL-03":{"cand1_firstname":"Mike","cand1_lastname":"Rogers","cand1_party":"r10","cand1_vote":0,
+"cand2_firstname":"Byron Keith","cand2_lastname":"Newell","cand2_party":"r1","cand2_vote":0,
+"cand3_firstname":"Barron Rae","cand3_lastname":"Revels","cand3_party":"r2","cand3_vote":0,
+"total_vote":0,"winner":"","incumbent":"cand1"},
+"2024-AL-04":{"cand1_firstname":"Robert","cand1_lastname":"Aderholt","cand1_party":"r1","cand1_vote":0,
+"cand2_firstname":"Justin","cand2_lastname":"Holcomb","cand2_party":"r2","cand2_vote":0,
+"total_vote":0,"winner":"","incumbent":"cand1"},
+"2024-AL-05":{"cand1_firstname":"Dale","cand1_lastname":"Strong","cand1_party":"r10","cand1_vote":0,
+"cand2_firstname":"Daniel","cand2_lastname":"Bowman","cand2_party":"r1","cand2_vote":0,
+"total_vote":0,"winner":"","incumbent":"cand1"},
+"2024-AL-07":{"cand1_firstname":"Christian","cand1_lastname":"Horn","cand1_party":"r1","cand1_vote":0,
+"cand2_firstname":"Roger","cand2_lastname":"Litaker","cand2_party":"r2","cand2_vote":0,
+"total_vote":0,"winner":""},
+};

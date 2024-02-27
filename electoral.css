@@ -1,0 +1,2010 @@
+@font-face {font-family:CondExtrabold; src: url("assets/fonts/FlamaCondensed-Extrabold.ttf")}
+@font-face {font-family:CondBold; src: url("assets/fonts/FlamaCondensed-Bold.ttf")}
+@font-face {font-family:CondSemi; src: url("assets/fonts/FlamaCondensed-Semibold.ttf")}
+@font-face {font-family:CondMedium; src: url("assets/fonts/FlamaCondensed-Medium.ttf")}
+@font-face {font-family:CondBasic; src: url("assets/fonts/FlamaCondensed-Basic.ttf")}
+@font-face {font-family:CondBook; src: url("assets/fonts/FlamaCondensed-Book.ttf")}
+@font-face {font-family:CondLight; src: url("assets/fonts/FlamaCondensed-Light.ttf")}
+
+@font-face {font-family:SemiBook; src: url("assets/fonts/FlamaSemicond-Book.ttf")}
+@font-face {font-family:SemiBasic; src: url("assets/fonts/FlamaSemicond-Basic.ttf")}
+@font-face {font-family:SemiMedium; src: url("assets/fonts/FlamaSemicond-Medium.ttf")}
+@font-face {font-family:SemiBold; src: url("assets/fonts/FlamaSemicond-Bold.ttf")}
+
+@font-face {font-family:FlamaSemibold; src: url("assets/fonts/Flama-Semibold.otf")}
+@font-face {font-family:FlamaMedium; src: url("assets/fonts/Flama-Medium.otf")}
+@font-face {font-family:FlamaBasic; src: url("assets/fonts/Flama-Basic.otf")}
+@font-face {font-family:FlamaBook; src: url("assets/fonts/Flama-Book.otf")}
+@font-face {font-family:FlamaMSNBCMonoSemi; src: url("assets/fonts/Flama-MSNBC-Mono-Semibold.ttf")}
+
+@font-face {font-family:UltraCondMedium; src: url("assets/fonts/FlamaUltraCondensed-Medium.ttf")}
+@font-face {font-family:UltraCondSemibold; src: url("assets/fonts/FlamaUltraCondensed-Semibold.ttf")}
+
+@font-face {font-family:StateFace; src: url("assets/fonts/StateFace-Regular.otf")}
+
+@font-face {font-family:AltGoth1; src: url("assets/fonts/AlternateGotNo1D.ttf")}
+@font-face {font-family:AltGoth2; src: url("assets/fonts/AlternateGotNo2D.ttf")}
+@font-face {font-family:AltGoth3; src: url("assets/fonts/AlternateGotNo3D.ttf")}
+
+@font-face {font-family:CNNThin; src: url("assets/fonts/CNNSansDisplay-Thin.ttf")}
+@font-face {font-family:CNNLight; src: url("assets/fonts/CNNSansDisplay-Light.ttf")}
+@font-face {font-family:CNNRegular; src: url("assets/fonts/CNNSansDisplay-Regular.ttf")}
+@font-face {font-family:CNNMedium; src: url("assets/fonts/CNNSansDisplay-Medium.ttf")}
+@font-face {font-family:CNNBold; src: url("assets/fonts/CNNSansDisplay-Bold.ttf")}
+@font-face {font-family:CNNHeavy; src: url("assets/fonts/CNNSansDisplay-Heavy.ttf")}
+@font-face {font-family:CNNBlack; src: url("assets/fonts/CNNSansDisplay-Black.ttf")}
+@font-face {font-family:CNNClockBold; src: url("assets/fonts/CNNClock-Bold.ttf")}
+@font-face {font-family:CNNSansBold; src: url("assets/fonts/CNNSans-Bold.ttf")}
+
+
+
+cnnT{font-family: CNNThin, sans-serif}
+cnnL{font-family: CNNLight, sans-serif}
+cnnR{font-family: CNNRegular, sans-serif}
+cnnM{font-family: CNNMedium, sans-serif}
+cnnB{font-family: CNNBold, sans-serif}
+cnnH{font-family: CNNHeavy, sans-serif}
+cnnBl{font-family: CNNBlack, sans-serif}
+
+a1{font-family:FlamaMedium; font-size: 65%; transform: translate(10%, 12.5%) scaleX(1.1); letter-spacing: 1px;}
+a1a{font-family:FlamaMedium; font-size: 0.5em; transform: translatexY(25%); letter-spacing: 5px;}
+a1p{font-family:FlamaMedium; font-size: 65%; transform: translate(5%, 12.5%) scaleX(1.1); letter-spacing: 1px;}
+a2{font-family:CondBasic; font-size: 88px; color: rgb(43,43,43); letter-spacing: -2px;}
+a3{font-family:SemiMedium; font-size: 3vw;}
+a4{font-family:CondBold; font-size: 80px; letter-spacing:-1px; color: rgb(237,28,36)}
+a5{font-family:CondBasic; font-size: 4vw;}
+a6{font-family:CondBasic; font-size: 2.5vw; line-height: 100%;}
+a7{font-family:CondBold; font-size: 4vw; line-height: 100%;}
+in{font-family:CondBasic; font-size: 0.6em; margin-left: 0.1vw; letter-spacing: 0vw;}
+ct{font-family:CondBook; font-size: 0.75em; letter-spacing: 0vw; line-height: 100%;}
+hd{font-size: 0.7em; vertical-align: top; text-decoration: underline; line-height: 2.75vh; text-underline-offset: 0.2vh;}
+tz{font-family:CondMedium; font-size: 0.7em; letter-spacing: 0.025vw;}
+sf{font-family: StateFace;}
+
+#mapFiller {position: fixed; left: 0; right: 0; width: 100vw; height: 100vh; background-color: rgb(46,56,75)}
+
+#mapBase {opacity: 0}
+
+:root {
+	--projYellow: rgb(254,207,10);
+	--titleText: rgb(44,44,44);
+	--demColor: rgb(20,140,230);
+	--repColor: rgb(189,18,28);
+}
+
+#root {
+	position: fixed;
+	top: 0vh; left: 0; width: 100vw; height: 100vh;
+}
+
+::-webkit-scrollbar {width: 0px;}
+
+html {
+	-webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none;
+   	-moz-user-select: none; -ms-user-select: none; user-select: none;
+	background-color: rgb(46,56,75);
+}
+
+.unselectable {
+	-webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none;
+   	-moz-user-select: none; -ms-user-select: none; user-select: none;
+}
+
+span {
+	-webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none;
+   	-moz-user-select: none; -ms-user-select: none; user-select: none;
+	cursor: default;
+}
+
+.st0 {
+        pointer-events: none; fill:#ffffff;
+	cursor: none; user-select: none; -moz-user-select: none;
+        -khtml-user-select: none; -webkit-user-select: none; -o-user-select: none;
+} 
+
+path {fill: rgb(107, 112, 123); stroke: #dedede; stroke-linecap: round; pointer-events: painted;
+	vector-effect: non-scaling-stroke;
+}
+
+.borders {stroke: #fff; stroke-width: 1.5px;}
+.state {stroke: #fff; stroke-width: 0.75px; stroke-linecap: round; pointer-events: painted; vector-effect: non-scaling-stroke;}
+.cd {display: none; stroke: #fff; stroke-width: 0.5px; stroke-linecap: round; pointer-events: painted; vector-effect: non-scaling-stroke;}
+
+.hd, .sd {display: none; stroke: #fff; stroke-width: 0.375px; stroke-linecap: round; pointer-events: painted; vector-effect: non-scaling-stroke;}
+
+.cd.tbc {fill: rgb(75,80,90)}
+
+.noProjection {fill: rgb(146, 151, 160)}
+.pollsClosed {fill: rgb(83, 87, 95)}
+.noContest {fill: rgb(78, 82, 90)}
+
+.yesState {fill: rgb(243,124,10)}
+.noState {fill: rgb(140,98,187)}
+
+.gopLead {fill: rgb(255,157,153)}
+.demLead {fill: rgb(146,212,252)}
+.indLead {fill: rgb(204,174,234)}
+.othLead {fill: rgb(204,204,204)}
+
+.redState {fill: var(--repColor)}
+.blueState {fill: var(--demColor)}
+.indState {fill: rgb(133,61,204)}
+.othState {fill: rgb(170,170,170)}
+.rpState {fill: rgb(133,61,204)}
+.orangeState {fill: rgb(254,125,7)}
+.runoffState {fill: rgb(247,187,5)}
+.uState {fill: rgb(230,172,0)}
+.tieState {fill: rgb(232,233,237); stroke: #fff;}
+
+.pollClosingSelected {
+	fill: rgb(250,188,14); stroke: #fff; stroke-width: 2px;
+	stroke: #fff; stroke-width: 1.5px; animation: poll-close-stroke 3s infinite;
+}
+
+.pollClosingNotSelected {stroke: rgb(245,245,245); stroke-width: 0.5px;}
+.notSelectedState {fill: rgb(84,89,100)}
+
+.noContest.notSelectedState {fill: rgb(65,69,77)}
+.noProjection.notSelectedState, .notSelectedState.noProjection {fill: rgb(124, 128, 136)}
+
+.redState.notSelectedState {fill: rgb(150,20,30)}
+.blueState.notSelectedState {fill: rgb(12,103,159)}
+.runoffState.notSelectedState {fill: rgb(159,142,51)}
+.indState.notSelectedState {fill: rgb(103,0,174)}
+.rpState.notSelectedState {fill: rgb(103,0,174)}
+.orangeState.notSelectedState {fill: rgb(178,88,2)}
+.uState.notSelectedState {fill: rgb(185,140,4)}
+.tieState.notSelectedState {fill: rgb(190,190,190)}
+
+.gopLead.notSelectedState {fill: rgb(201,103,99)}
+.demLead.notSelectedState {fill: rgb(92,158,198)}
+.indLead.notSelectedState {fill: rgb(150,120,180)}
+.othLead.notSelectedState {fill: rgb(150,150,150)}
+
+.selectedState {stroke-style: double; stroke: #fff; pointer-events: none; stroke-width: 1.75px; fill-opacity: 0; vector-effect: non-scaling-stroke;}
+
+.d1State {fill: rgb(0, 138, 173)}
+.d2State {fill: rgb(4,57,206)}
+.d3State {fill: rgb(31,105,171)}
+.d4State {fill: rgb(0, 156, 230)}
+.d5State {fill: rgb(34, 83, 78)}
+.d6State {fill: rgb(105,123,182)}
+.d7State {fill: rgb(143,225,162)}
+.d8State {fill: rgb(3,171,115)}
+.d9State {fill: rgb(40,116,250)}
+.d10State {fill: rgb(146,184,236)}
+
+.r1State {fill: rgb(227, 32, 32)}
+.r2State {fill: rgb(136, 7, 18)}
+.r3State {fill: rgb(245, 29, 80)}
+.r4State {fill: rgb(250, 130, 55)}
+.r5State {fill: rgb(255, 128, 147)}
+.r6State {fill: rgb(191, 8, 48)}
+.r7State {fill: rgb(134, 39, 118)}
+.r8State {fill: rgb(203, 129, 207)}
+.r9State {fill: rgb(176, 67, 132)}
+.r10State {fill: rgb(255, 107, 119)}
+.r11State {fill: rgb(255, 206, 71)}
+
+.county {stroke: #cdcdcd; stroke-width: 0.825px; stroke-linecap: round; pointer-events: painted; vector-effect: non-scaling-stroke; display: none;}
+.selectedCounty {stroke: #fff; stroke-width: 1.5px; animation: stroke-width-animation 3s infinite;}
+.cd.selectedCounty {stroke: #fff; stroke-width: 3px; animation: cd-stroke-width-animation 3s infinite;}
+.notselectedCounty {pointer-events: none;}
+.countyMapState {stroke: #fff; pointer-events: none; stroke-width: 0.875px; fill-opacity: 0; vector-effect: non-scaling-stroke;}
+.selectedStateShow {stroke: #fff; stroke-width: 1.5px; fill-opacity: 1; vector-effect: non-scaling-stroke;}
+
+#pathBorder {display: none; pointer-events: none; stroke: #000; stroke-width: 6.5px; fill-opacity: 0; vector-effect: non-scaling-stroke;}
+
+#mapHolder {display: inline-block; position: absolute; bottom: 0; right: 0;}
+
+#headingBox {
+	position: fixed;
+  	top: 0; left: 0; width: 100vw; height: 16.5vh;
+	background-color: rgb(242,242,242);
+/*	left: 2vw; width: 75vw; background-color: rgb(255,0,0); */
+	box-shadow: 0px 0.05vh 1vh rgba(0,0,0,0.3);
+}
+
+#headingText:hover {background-color: rgb(100,100,100)}
+
+#headingText {
+	position: fixed; display: flex;
+  	top: 0; left: 2vw; width: 97.5vw; height: 16.5vh;
+	align-items: baseline; justify-content: start; flex-direction: row;
+	pointer-events: none;
+}
+
+#headingTextContest {
+	font-family: UltraCondSemibold, sans-serif; color: var(--titleText);
+	height: 8.75vh; align-self: center; font-size: 6.3vw; line-height: 8.5vh;
+	border-top: 0.75vh solid #fa3246; border-bottom: 0.75vh solid rgb(23,156,244);
+	padding-left: 0.375vw; padding-right: 0.375vw; margin-right: 0.75vw;
+	white-space: nowrap; text-overflow: string; text-transform: uppercase;
+	transform-origin: center left;
+}
+
+#headingTextContest:empty {padding-left: 0vw; padding-right: 0vw; margin-right: 0vw;}
+
+#headingTextTitle {
+	font-family: CondBold, sans-serif; color: var(--titleText);
+	font-size: 13.75vh; letter-spacing: -0.1vw; line-height: 15.5vh; height: fit-content;
+	text-align: left; padding-right: 1.5vw; text-overflow: string; text-transform: uppercase;
+	white-space: nowrap; transform-origin: top left;
+}
+
+#headingTextSubtitle {
+	font-family: CondMedium, sans-serif; color: rgb(72,72,72);
+	font-size: 5.75vh; letter-spacing: -0.1vh; line-height: 4.75vh;
+	text-align: left; font-variant-numeric: tabular-nums;
+	display: flex; height: fit-height;
+	text-overflow: string; text-transform: uppercase;
+	white-space: nowrap; transform-origin: 0 0;
+}
+
+#headingTextSubtitleTwin {
+	display: flex; font-family: CondMedium, sans-serif; color: rgb(72,72,72);
+	font-size: 5.75vh; letter-spacing: -0.1vh; line-height: 4.75vh;
+	font-variant-numeric: tabular-nums;
+	align-self: center; align-items: flex-end; justify-content: end;
+	vertical-align: text-top;
+	text-overflow: string; text-transform: uppercase;
+	white-space: nowrap;
+}
+
+#headingTextSubtitleTwin:empty {
+	display: none;
+}
+
+#headingTextDetail {
+	font-family: CondBasic, sans-serif; color: rgb(72,72,72);
+	font-size: 3.75vh; letter-spacing: -0.1vh; line-height: fit-height;
+	text-align: left; font-variant-numeric: tabular-nums;
+	display: flex; height: fit-height; transform: translateY(-0.3vh);
+	text-overflow: string; text-transform: uppercase;
+	white-space: nowrap; transform-origin: 0 0; right: 0;
+}
+
+#headingElectoralVotes {
+	display: flex; pointer-events: none; position: fixed;
+  	top: 4.65vh; right: 2vw; width: fit-content; height: 8.5vh;
+	align-items: flex-end; justify-content: end;
+	flex-direction: row; column-gap: 0.75vw; transition: 0.5s clip-path;
+	clip-path: inset(0 0 0 0); transform: translateY(0); transition-delay: 0.5s;
+}
+
+#headingElectoralVotes span {
+	color: rgb(72,72,72); display: flex; text-overflow: string; white-space: nowrap;
+}
+
+#headingElectoralVotes.hidden {clip-path: inset(100% 0 0 0); transition-delay: 0s;}
+
+#headingElectoralVotesNumber {
+	font-family: FlamaMSNBCMonoSemi, sans-serif; 
+	font-size: 10vh; letter-spacing: -0.15vw; line-height: 8.5vh;
+	height: 100%; transform-origin: 0 0;
+	font-variant-numeric: tabular-nums;
+}
+
+#headingElectoralVotesText {
+	font-family: CondBasic, sans-serif;
+	font-size: 3.75vh; line-height: 3.1vh;
+	height: fit-content; transform: translateY(-0.3vh);
+	text-transform: uppercase;
+}
+
+#headingBoxRoadTo270 {
+	position: fixed;
+  	top: 0; left: 0; width: 100vw; height: 16.5vh;
+	background-color: rgb(68,79,94); display: none;
+	justify-content: center; align-items: center;
+}
+
+#headingRoadTo270 {height: 12vh; display: flex;}
+
+#appHeadingBox {
+	position: fixed;
+  	top: 0; left: 0; width: 100vw; height: 16.5vh;
+	background-color: rgb(68,79,94); display: none;
+	box-shadow: 0px 0.05vh 1vh rgba(0,0,0,0.3);
+	justify-content: center; align-items: center;
+}
+
+#headingSenateWhatIf, #headingPresidentProjections {
+	display: none; height: 16.5vh; line-height: 16.5vh;
+	font-family: CondSemi; font-size: 12vh; color: #fff; cursor: pointer;
+}
+
+#headingSenateWhatIf {
+	font-size: 13.5vh;
+}
+
+#headingPollClosing {
+	display: flex; flex-direction: row; width: 96vw;
+	justify-content: center; align-self: center; align-items: baseline;
+}
+
+#headingPollClosing:empty {display: none}
+
+#headingTextPollClosingText {
+	display: none;
+	font-family: CondBold, sans-serif; color: var(--titleText);
+	font-size: 7.25vw; letter-spacing: -0.15vw; line-height: 8.25vh;
+	text-align: left; padding-right: 1.5vw;
+	text-overflow: string; text-transform: uppercase;
+	white-space: nowrap; transform-origin: top left;
+}
+
+#headingText.roadMap #headingElectoralVotesText,
+#headingText.roadMap #headingElectoralVotesNumber {
+	color: rgb(68, 79, 94)
+}
+#headingTextPollClosing {
+	display: flex; flex-direction: row; align-content: center; align-self: center;
+	width: fit-content; height: 8.75vh;
+}
+
+#headingTextPollClosingHour {
+	font-family: FlamaMSNBCMonoSemi, sans-serif; color: var(--titleText);
+	font-size: 7.5vw; letter-spacing: -0.2vw; line-height: 7.5vh; height: 100%;
+	display: flex; padding-right: 0.25vw;
+}
+
+#headingTextPollClosingHour:empty {padding-right: 0vw}
+
+#headingTextPollClosingDetails {
+	display: flex; width: fit-content; flex-direction: column; height: 8.75vh;
+}
+
+#headingTextPollClosingPM {
+	font-family: CondBold, sans-serif; color: var(--titleText);
+	order: 1; font-size: 3.25vw; letter-spacing: -0.05vw; line-height: 4vh;
+	background-color: rgb(0,255,255,0); height: 50%; padding-right: 0.75vw;
+	text-transform: uppercase;
+}
+
+#headingTextPollClosingPM:empty {padding-right: 0vw;}
+
+#headingTextPollClosingET {
+	order: 2; font-family: CondSemi, sans-serif; color: #6C6C6C;
+	font-size: 2vw; letter-spacing: 0.05vw; line-height: 2vw; height: 50%;
+}
+
+#controlBars {
+	position: fixed; display: flex;
+	top: 17.5vh; right: 0.5vw; width: 5.75vw; transform: scaleX(0.7); transform-origin: right;
+	justify-content: flex-start; align-content: flex-start; 
+	height: 81vh; row-gap: 1.5vh; flex-wrap: wrap;
+}
+
+#controlBars div {
+	display: flex; flex-direction: column; 
+	justify-content: flex-start; align-items: flex-start; align-content: flex-start;
+	overflow: auto; overscroll-behavior-y: none; scroll-snap-type: mandatory;
+	width: 100%; border-radius: 1vh; row-gap: 0.5vh;
+}
+
+#controlBarYear {order: 1; height: 18vh;}
+#controlBarContest {order: 2; height: 14.5vh;}
+#controlBarExtras {order: 3; height: 24%; scroll-snap-type: both;}
+
+#controlBarFixed {
+	position: fixed; display: flex;
+	flex-direction: column;
+	bottom: 1.5vh; right: 0.5vw; width: 5.75vw; transform: scaleX(0.7); transform-origin: right;
+	justify-content: center; align-items: center; row-gap: 0.6vh;
+	height: fit-content; max-height: 28vh; flex-wrap: wrap;
+}
+
+#controlBarSenateWhatIf {
+	position: fixed; display: flex;
+	top: 18.5vh; right: -10vw; width: 5.75vw; transform: scaleX(0.7); transform-origin: right;
+	justify-content: flex-start; align-content: flex-start;
+	height: 60vh; row-gap: 0.6vh; flex-wrap: wrap;
+}
+
+#controlBarPollClosings {
+	position: fixed; display: flex;
+	top: 17.5vh; right: -10vw; width: 5.75vw; transform: scaleX(0.7); transform-origin: right;
+	justify-content: flex-start; align-content: flex-start;
+	height: 60vh; row-gap: 0.6vh; flex-wrap: wrap;
+}
+
+#controlBar270 {
+	position: fixed; display: flex;
+	top: 17.5vh; right: -10vw; width: 5.75vw; height: 60vh; row-gap: 1vh;
+	transform: scaleX(0.7); transform-origin: right;
+	justify-content: center; align-content: flex-start; flex-wrap: wrap; row-gap: 0.6vh;
+}
+
+#controlBar270Presets {
+	display: flex; flex-direction: column; order: 1;
+	justify-content: flex-start; align-items: flex-start; align-content: flex-start;
+	top: 0; right: 0; width: 100%; max-height: 40%; border-radius: 1vh;
+	overflow: auto; overscroll-behavior-y: none; scroll-snap-type: both; row-gap: 0.6vh;
+}
+
+#controlBar270Party {
+	display: flex; flex-direction: column; order: 2;
+	justify-content: flex-start; align-items: flex-start; align-content: flex-start;
+	overflow: auto; max-height: 40%; row-gap: 0.6vh;
+	transform: scaleX(calc(100%/0.7));
+}
+
+.partyButton {
+	font-family: SemiBold, sans-serif;
+
+	width: 3.9vw; height: 5vh; color: #fff;
+	font-size: 3.5vh; line-height: 4.75vh;
+	text-align: center; justify-content: center; filter: brightness(75%);
+	text-transform: uppercase;
+	border: 0.1vw solid rgb(46,56,75); border-radius: 1vh;
+	cursor: pointer; scroll-snap-align: start;
+}
+
+.partyButton.clicked {filter: brightness(100%)}
+
+#button270-party-magic {margin-top: 2vh; color: transparent; text-shadow: 0 0 0 #fff;}
+#button270-party-dem {background-color: var(--demColor)}
+#button270-party-gop {background-color: var(--repColor)}
+
+#controlBarShadow {
+	position: fixed; height: 100vh; width: 1vw; right: -2.5vw;
+	box-shadow: -4vw 0 2vw 3vw rgba(0,0,0,0.2);
+}
+
+.controlButton {
+	display: flex; width: 5.55vw; height: 3vh;
+	background-color: rgb(245,245,245); color: rgb(24,24,24);
+	font-family: FlamaMedium, sans-serif; font-size: 2.4vh; line-height: 3vh;
+	text-align: center; justify-content: center;
+	transform-origin: left; text-transform: uppercase;
+	border: 0.15vh solid rgb(245,245,245); border-radius: 1vh;
+	cursor: pointer; scroll-snap-align: start;
+}
+
+.controlButtonSlim {
+	width: 5.55vw; height: 2.6vh;
+	background-color: rgb(245,245,245); color: rgb(24,24,24);
+	font-family: FlamaMedium, sans-serif; font-size: 2.1vh; line-height: 2.6vh;
+	text-align: center; justify-content: center; letter-spacing: -0.0175vw;
+	transform-origin: left; text-transform: uppercase;
+	border: 0.08vw solid rgb(245,245,245); border-radius: 1vh;
+	cursor: pointer; scroll-snap-align: start;
+}
+
+.controlButtonSlimFixed {
+	width: 5.55vw; height: 2.6vh;
+	background-color: rgb(245,245,245); color: rgb(24,24,24);
+	font-family: FlamaMedium, sans-serif; font-size: 2.4vh; line-height: 2.6vh;
+	text-align: center; justify-content: center; letter-spacing: -0.015vw;
+	transform-origin: left; text-transform: uppercase;
+	border: 0.08vw solid rgb(245,245,245); border-radius: 1vh;
+	cursor: pointer; scroll-snap-align: start;
+}
+
+.pollClosingButton {
+	display: flex; width: 5.55vw; height: 3.5vh;
+	background-color: rgb(245,245,245); color: rgb(24,24,24);
+	font-family: FlamaMedium, sans-serif; font-size: 2.5vh; line-height: 3.5vh;
+	text-align: center; justify-content: center;
+	transform-origin: left; text-transform: uppercase;
+	border: 0.1vw solid rgb(245,245,245); border-radius: 1vh;
+	cursor: pointer; scroll-snap-align: start;
+}
+
+.controlButtonInactive {background-color: rgb(180,180,180); color: rgb(105,105,105); pointer-events: none; order: 99;}
+
+.statButton, #filtersBar span, .raceButton {
+	width: 12.1vw; height: 3.25vh;
+	background-color: rgb(110,120,130); color: #fff;
+	font-family: CondBasic, sans-serif;
+	font-size: 2.75vh; line-height: 3.25vh;
+	text-align: center; justify-content: center;
+	transform-origin: left; text-transform: uppercase;
+	border: 0.25vh solid rgb(46,56,75);
+	cursor: pointer; scroll-snap-align: start;
+}
+
+.statButton.selected, #filtersBar span.selected, .raceButton.selected {
+	background-color: rgb(240,240,240); color: rgb(24,24,24);
+}
+
+.controlButtonApp {
+	width: 12.1vw; height: 4.5vh;
+	background-color: rgb(240,240,240); color: rgb(24,24,24);
+	font-family: CondBasic, sans-serif;
+	font-size: 3.5vh; line-height: 4.5vh;
+	text-align: center; justify-content: center;
+	transform-origin: left; text-transform: uppercase;
+	border: 0.25vh solid rgb(46,56,75);
+	border-radius: 1vh;
+	cursor: pointer; scroll-snap-align: start;
+}
+
+#controlButtonRemoveFilters {
+	width: 2.5vw; height: 3.5vh; display: none;
+	color: rgb(245,245,245);
+	font-family: FlamaMedium, sans-serif; font-size: 2.75vh; line-height: 3.5vh;
+	text-align: center; justify-content: center; transform-origin: center; text-transform: uppercase;
+	cursor: pointer; scroll-snap-align: start;
+}
+
+#controlButtonRemoveFilters.show {display: flex;}
+
+#statsBar, #appsBar, #filtersBar, #contestsBar {
+	position: fixed; display: flex; flex-direction: column; order: 1; visibility: hidden;
+	justify-content: flex-start; align-items: center; align-content: flex-start;
+	bottom: -28.5vh; right: 5.25vw; height: fit-content;
+	width: 12.5vw; max-height: 28vh; opacity: 1;
+	overflow: auto; overscroll-behavior-y: none; scroll-snap-type: both;
+	transition: 0.5s, opacity 0s; background-color: rgb(46,56,75); transition-delay: display 0s;
+}
+
+#resultsHouseGroups.visible ~ #statsBar,
+#resultsHouseGroups.visible ~ #appsBar,
+#resultsHouseGroups.visible ~ #filtersBar,
+#resultsHouseGroups.visible ~ #contestsBar,
+#resultsHouseGroups.visible ~ #controlBarPen {
+	right: 22.5vw;
+}
+#statsBar.visible, #appsBar.visible, #filtersBar.visible, #contestsBar.visible {visibility: visible; bottom: 1.5vh;}
+#statsBar.visible ~ #controlBarPen, #filtersBar.visible ~ #controlBarPen {bottom: 30.5vh}
+
+#controlBarPen {
+	position: fixed; display: flex;
+	bottom: 1.5vh; right: 5.25vw; width: 5.75vw; transform: scaleX(0.7); transform-origin: right;
+	justify-content: center; align-content: flex-end; row-gap: 0.6vh;
+	height: fit-content; max-height: 10vh; flex-wrap: wrap; transition: 0.5s;
+}
+
+.statButton.controlButtonNotselected, .filterButton.controlButtonNotselected, .controlButtonApp.controlButtonNotselected {
+	background-color: rgb(110,120,130);
+	color: #fff
+}
+
+.controlButtonNotselected {
+	background-color: rgb(170,170,170);color: rgb(65,65,65);
+}
+
+.controlButtonSlim.controlButtonNotselected {
+	background-color: rgb(170,170,170); color: rgb(42,42,42);
+}
+
+.buttonSelected {
+	background-color: rgb(51,51,51); color: rgb(245,245,245);
+}
+
+#buttonFiller {height: 1.5vh; opacity: 0}
+.buttonFillerGrow {flex-grow: 1}
+
+.buttonFillerSlim {
+	background-color: rgba(0,255,0,0); border: 0;
+	margin-top: 0.8vh; pointer-events: none;
+}
+
+#results {
+	position: fixed; display: inline-flex;
+	top: 16.5vh; left: 0vw; width: 39vw; height: 80.5vh;
+	background-color: rgb(215,215,215);
+	flex-direction: column; flex-wrap: nowrap;
+	box-shadow: 0.05vh 0px 1vh 0.5vh rgba(0,0,0,0.2);
+	height: 83.5vh;
+	scroll-snap-type: both; align-items: center;
+	justify-content: flex-start; align-content: flex-start;
+	overflow: auto; visibility: visible; transition: visibility 0.5s, left 0.5s ease;
+	transform: translateZ(0);
+}
+#results.hidden {
+	left: -39vw; visibility: hidden;
+}
+
+#resultsHouseGroups {
+	position: fixed; display: flex;
+	top: 16.5vh; right: 0; transform: translateX(25vw); width: 16vw; height: 83.5vh;
+	background-color: rgb(215,215,215); visibility: hidden;
+	padding-left: 0.75vw; padding-right: 5.25vw;
+	flex-direction: row; flex-wrap: wrap; overflow: auto;
+
+	column-gap: 0.5vw; row-gap: 0.5vw;
+	align-content: flex-start; justify-content: flex-start;
+	overscroll-behavior-y: none; scroll-snap-type: both;
+	transition: transform 0.5s, visibility 1s; 
+}
+
+#resultsHouseGroups.visible {
+	transform: translateX(0vw); visibility: visible;
+}
+
+#resultsHouseGroups > .header {
+	padding: 1vh 1.5vw 0 0; position: sticky; top: 0; width: 16vw;
+	background-color: rgb(215,215,215);
+	font-family: CondMedium, sans-serif; letter-spacing: -0.02vh; color: rgb(32,32,32);
+	font-size: 5vh; line-height: 6vh; text-align: left; text-transform: uppercase; transform-origin: left;
+}
+
+.cdBox {
+	cursor: default;
+	background-color: rgb(43,43,43); width: 27%; height: 3.6vh; padding: 2.5% 2% 2.5% 2%;
+	font-family: FlamaMSNBCMonoSemi; font-size: 4.25vh; line-height: 3.5vh; color: rgb(254,207,10);
+	text-align: center; text-transform: uppercase; white-space: nowrap;
+	font-variant-numeric: tabular-nums;
+}
+
+.cdBox > hd {
+	font-size: 0.65em; line-height: 3vh; vertical-align: top;
+	text-decoration: underline; text-underline-offset: 0.3vh;
+}
+
+#resultsBoxTop {
+	display: flex; order: 1; flex-direction: row; align-items: baseline; flex-wrap: wrap;
+	width: 100%; height: fit-content; background-color: rgb(210,210,210);
+	padding-top: 1.4vh; padding-bottom: 1.4vh;
+	border-bottom: 0.2vh solid rgb(245,245,245);
+}
+
+#resultsBoxTopText {
+	font-family: CondMedium, sans-serif;
+	font-size: 8.75vh; line-height: 1; letter-spacing: -0.02vh;
+	color: #202020; white-space: nowrap; height: 8.25vh;
+	text-align: left; margin-left: 5%; transform-origin: left;
+	text-transform: uppercase; font-variant-numeric: tabular-nums;
+}
+
+#resultsBoxTopText:empty {display: none}
+#resultsBoxTopText:empty ~ #resultsBoxEstimate {display: none}
+
+#headingReportingText {
+	position: absolute; right: 0;
+	margin-right: 2.5%; width: 27.5%; min-width: 24.5%;
+
+	font-family: FlamaMSNBCMonoSemi, sans-serif;
+	font-size: 8.25vh; line-height: 8.75vh; letter-spacing: -0.09vw;
+	color: rgb(72,72,72);
+	height: 8.25vh; text-align: right;
+	font-variant-numeric: tabular-nums;
+}
+
+#headingReportingText:empty {width: 24.5%}
+
+#resultsBoxEstimate {
+	font-family: CondSemi, sans-serif; font-size: 4.5vh; line-height: 5vh;
+	padding-left: 1.5vh; padding-right: 1.5vh; margin-left: 5%; margin-bottom: 0.7vh;
+	color: #000; text-align: left; height: 5vh; width: fit-content;
+	text-transform: uppercase; white-space: nowrap; background-color: var(--projYellow);
+	align-self: flex-start;
+}
+
+.filler {width: 100%; height: 0; display: flex;}
+
+#resultsBoxEstimate:empty {display: none}
+#resultsBoxEstimate:empty ~ .filler {display: none}
+
+#resultsPollClosing {
+	font-family: FlamaMedium, sans-serif; color: #202020;
+	transform: scaleX(0.75); transform-origin: left;
+	width: 133%; margin-left: 5%; height: 4vh;
+	font-size: 4vh; line-height: 1; text-align: left; text-transform: uppercase;
+	white-space: nowrap; text-overflow: string;
+}
+
+#resultsPollClosing:empty {display: none; height: 0}
+
+#resultsBoxSource {
+	order: 399;
+	font-family: CondMedium, sans-serif;
+	font-size: 3vh; text-align: left; line-height: 3vh;
+	color: rgb(96,96,96); background-color: rgb(215,215,215);
+	transform-origin: top left; max-height: 8vh; margin-top: -0.2vh;
+	padding: 1.25vh 0 1.5vh 2vw; white-space: nowrap; text-overflow: string;
+}
+
+#resultsBoxSource:empty {display: none; height: 0}
+
+#resultsCandidates {
+	order: 3;
+	display: flex; flex-direction: column; justify-content: start;
+	min-height: 59vh; width: 39vw;
+	border-top: 0.2vh solid rgb(245,245,245);
+	overflow: auto; gap: 0.2vh; flex-grow: 1;
+	background-color: white;
+	overscroll-behavior-y: none; scroll-snap-type: both;
+}
+
+#resultsBoxFiller {display: inline-flex; height: 100%; flex-grow: 0; width: 100%; order: 299; background-color: rgb(215,215,215)}
+
+#resultsBoxOne, #resultsBoxTwo, #resultsBoxThree, #resultsBoxFour, #resultsBoxFive, #resultsBoxSix, #resultsBoxSeven, #resultsBoxEight, #resultsBoxNine, #resultsBoxTen, #resultsBoxOther {
+	flex-direction: row; align-items: center;
+	display: flex; justify-content: space-between;
+	height: 21vh; width: 100%; flex-shrink: 0;
+	background-color: rgb(215,215,215);
+}
+
+#resultsBoxRunoff {
+	flex-direction: row; align-items: center; order: 40;
+	display: flex; justify-content: space-between;
+	height: 10vh; width: 100%; flex-shrink: 0;
+	background-color: rgb(60,60,60);
+}
+
+#resultsBoxRunoff.hidden {display: none}
+
+#resultsBoxRunoff > .text {
+	margin-left: 5%; height: 86%; width: 63.5%;
+	font-family: CondBold, sans-serif; width: fit-content;
+	font-size: 6vh; line-height: 8.6vh;
+	color: #FFD60C; transform-origin: left;
+	text-transform: uppercase; white-space: nowrap;
+}
+
+#resultsRunoffNumber {
+	margin-right: 2%; height: 80%; width: calc(27.5% / 0.8); right: 0; min-width: 27.5%;
+	font-family: FlamaSemibold, sans-serif;
+	font-size: 7.5vh; letter-spacing: -0.08vw; line-height: 8vh;
+	color: rgb(45,45,45); background-color: rgb(243,243,243);
+	transform: scaleX(0.8); transform-origin: right;
+	font-variant-numeric: tabular-nums; text-align: center;
+}
+
+#resultsBoxUncalled {
+	flex-direction: row; align-items: center; order: 50;
+	display: flex; justify-content: space-between;
+	height: 10vh; width: 100%; flex-shrink: 0;
+	background-color: rgb(110,110,110);
+}
+
+#resultsBoxUncalled.hidden {display: none}
+
+#resultsBoxUncalled > .text {
+	margin-left: 5%; height: 86%; width: 63.5%;
+	font-family: CondBold, sans-serif; width: fit-content;
+	font-size: 6vh; line-height: 8.6vh;
+	color: #fff; text-align: left; transform-origin: left;
+	text-transform: uppercase; white-space: nowrap;
+}
+
+#resultsUncalledNumber {
+	margin-right: 2%; height: 80%; width: calc(27.5% / 0.8); right: 0; min-width: 27.5%;
+	font-family: FlamaSemibold, sans-serif;
+	font-size: 7.5vh; letter-spacing: -0.08vw; line-height: 8vh;
+	color: rgb(45,45,45); background-color: rgb(243,243,243);
+	transform: scaleX(0.8); transform-origin: right;
+	font-variant-numeric: tabular-nums; text-align: center;
+}
+
+#resultsBoxTooEarlyToCall, #resultsBoxRunoffElection, #resultsBoxUncontestedRace,
+#resultsBoxRankedChoiceVoting, #resultsBoxLegislatureSelection {
+	display: none; background-color: var(--projYellow);
+	font-family: CondSemi, sans-serif; font-size: 5vh; line-height: 5.5vh; text-indent: 2vw;
+	color: #000; text-align: left; height: 5.5vh; width: 100%;
+	text-transform: uppercase; white-space: nowrap;
+}
+
+#resultsBoxTooEarlyToCall {order: 1}
+#resultsBoxRunoffElection {order: 1}
+#resultsBoxUncontestedRace {order: 1}
+#resultsBoxRankedChoiceVoting {order: 1}
+#resultsBoxLegislatureSelection {order: 1}
+#resultsBoxRaceStatus:empty {display: none;}
+
+#resultsBoxIndependents {
+	flex-direction: row; align-items: center; order: 30;
+	display: flex; justify-content: space-between;
+	height: 12vh; width: 100%; flex-shrink: 0;
+	background-color: rgb(133,61,204);
+}
+
+#resultsBoxIndependents.hidden {display: none;}
+
+#resultsBoxIndependents > .text {
+	margin-left: 5%; height: 86%; width: 63.5%;
+	font-family: CondBold, sans-serif; width: fit-content;
+	font-size: 6vh; line-height: 10vh;
+	color: #fff; text-align: left; transform-origin: left;
+	text-transform: uppercase; white-space: nowrap;
+}
+
+#resultsIndependentsNumber {
+	margin-right: 2%; height: 80%; width: calc(27.5% / 0.8); right: 0; min-width: 27.5%;
+	font-family: FlamaSemibold, sans-serif;
+	font-size: 7.5vh; letter-spacing: -0.08vw; line-height: 10vh;
+	color: rgb(79,36,122); background-color: rgb(243,243,243);
+	transform: scaleX(0.8); transform-origin: right;
+	font-variant-numeric: tabular-nums; text-align: center;
+}
+
+#resultsBoxTotal {
+	flex-direction: row; align-items: center; order: 95;
+	display: none; justify-content: space-between;
+	height: 8vh; width: 100%; flex-shrink: 0;
+	background-color: rgb(215,215,215); align-content: end;
+}
+
+#resultsBoxTotal.hidden {display: none;}
+
+#resultsTotalText {
+	margin-left: 5%; height: 86%; width: 63.5%;
+	font-family: CondBold, sans-serif; width: fit-content;
+	font-size: 6vh; line-height: 6.88vh;
+	color: rgb(245,245,245,0); text-align: left; transform-origin: left;
+	text-transform: uppercase; white-space: nowrap;
+}
+
+#resultsTotalNumber {
+	margin-right: 2%; height: 80%; width: calc(27.5% / 0.8); right: 2vw; min-width: 27.5%;
+	font-family: FlamaSemibold, sans-serif;
+	font-size: 2.25vw; letter-spacing: 0vw; line-height: 6.02vh;
+	color: rgb(165,165,165); background-color: rgb(243,243,243,0);
+	transform: scaleX(0.8); transform-origin: right;
+	font-variant-numeric: tabular-nums; text-align: right;
+}
+
+#resultsBoxOne {order: 10; display: none;}
+#resultsBoxTwo {order: 20; display: none;}
+#resultsBoxThree {order: 30; display: none;}
+#resultsBoxFour {order: 40; display: none;}
+#resultsBoxFive {order: 50; display: none;}
+#resultsBoxSix {order: 60; display: none;}
+#resultsBoxSeven {order: 70; display: none;}
+#resultsBoxEight {order: 80; display: none;}
+#resultsBoxNine {order: 90; display: none;}
+#resultsBoxTen {order: 100; display: none;}
+#resultsBoxOther {order: 200; display: none; background-color: rgb(110,110,110); height: 15vh;}
+
+.resultsName {
+	flex-direction: column; order: 1; position: relative; left: 0;
+	display: inline-flex; justify-content: flex-start;
+	margin-left: 5%; height: 86%; width: 63.5%;
+	align-content: flex-start; flex-wrap: wrap;
+}
+
+.resultsBadge {
+	display: inline-flex; flex-direction: row; flex-wrap: nowrap;
+	max-height: 4.5vh; column-gap: 0.5vw;
+}
+
+.resultsBadge:empty {display: none}
+
+#resultsOtherText {position: relative; left: 0; width: 63.5%; display: inline-flex; margin-left: 5%;}
+
+.namePaddingA {order: 2; flex-grow: 1;}
+.namePaddingB {order: 7; flex-grow: 1;}
+
+.resultsName span:not(.wonPopularVoteBadge, .tickGain, .incumbentBadge, .runoffBadge, .projectedWinnerBadge, .electedPresidentBadge) {
+	line-height: 85%; letter-spacing: -0.03vw; text-transform: uppercase;
+	color: white; text-align: left; transform-origin: left;
+	width: fit-content; overflow: hidden; white-space: nowrap;
+}
+
+.firstName {order: 4; font-family: CondBook; font-size: 5vh;}
+.middleName {order: 5; font-family: CondSemi, sans-serif; font-size: 6vh;}
+.lastName, #resultsOtherName {order: 6; font-family: CondBold, sans-serif; font-size: 6.75vh;}
+
+#resultsOtherName {
+	line-height: 85%; letter-spacing: -0.03vw; text-transform: uppercase;
+	color: white; text-align: left; transform-origin: left;
+	width: fit-content; overflow: hidden; white-space: nowrap;
+}
+
+#resultsAhead {
+	cursor: default;
+	order: 7; font-family: FlamaMedium, sans-serif;
+	color: white; font-size: 2.75vh; line-height: 2.5vh;
+	height: fit-content; transform: scaleX(0.775);
+	transform-origin: right; text-align: right; width: 100%;
+	font-variant-numeric: tabular-nums; letter-spacing: 0.02vw;
+}
+
+.tickSVG {transform: scale(0.66); transform-origin: center; fill: #000; stroke: #000; stroke-width: 0;}
+
+#results .tick {
+	display: none; order: 1; height: 4.5vh; width: 5.75vh; align-self: flex-start; object-fit: contain;
+	background-color: var(--projYellow);
+}
+
+.incumbentBadge {
+	display: none; order: 3;
+	font-family: CondBasic, sans-serif; font-size: 3.5vh;
+	border: 0.25vh solid rgb(250,250,250); color: #fff;
+	padding: 0 0.7vh 0 0.7vh; opacity: 1;
+	height: 4vh; line-height: 4vh;
+	text-transform: uppercase; white-space: nowrap;
+}
+
+.wonPopularVoteBadge {
+	display: none; order: 3;
+	font-family: CondBasic, sans-serif; font-size: 3.75vh;
+	border: 0.25vh solid rgb(250,250,250); color: #fff;
+	padding: 0 0.7vh 0 0.7vh; opacity: 1;
+	height: 4vh; line-height: 4vh; letter-spacing: 0.03vw;
+	text-transform: uppercase; white-space: nowrap;
+}
+
+.runoffBadge {
+	display: none; order: 2;
+	font-family: CondMedium, sans-serif; font-size: 4vh;
+	color: var(--projYellow); background-color: rgb(24,24,24);
+	padding: 0 1vh 0 1vh;
+	height: 4.5vh; line-height: 4.5vh;
+	text-transform: uppercase; white-space: nowrap;
+}
+
+.tickGain {
+	display: none; order: 1;
+	font-family: CondMedium, sans-serif; font-size: 4vh;
+	color: var(--projYellow); background-color: rgb(24,24,24);
+	padding: 0 1vh 0 1vh; margin-left: -0.5vw;
+	height: 4.5vh; line-height: 4.5vh;
+	text-transform: uppercase; white-space: nowrap;
+}
+
+.projectedWinnerBadge {
+	display: none; order: 1;
+	font-family: CondSemi, sans-serif; font-size: 4.25vh;
+	background-color: var(--projYellow); color: #000;
+	padding: 0 1vh 0 0; margin-left: -0.5vw;
+	height: 4.5vh; line-height: 4.5vh;
+	text-transform: uppercase; white-space: nowrap;
+}
+
+.electedPresidentBadge {
+	display: none; order: 1;
+	font-family: CondSemi, sans-serif; font-size: 4.25vh;
+	background-color: var(--projYellow); color: #000;
+	padding: 0 1vh 0 0; margin-left: -0.5vw;
+	height: 4.5vh; line-height: 4.5vh;
+	text-transform: uppercase; white-space: nowrap;
+}
+
+#resultsOne, #resultsTwo, #resultsThree, #resultsFour, #resultsFive, #resultsSix, #resultsSeven, #resultsEight, #resultsNine, #resultsTen, #resultsOther {
+	order: 3;
+	margin-right: 2%; height: calc(100% - 2.94vh); width: 27.5%; right: 0; min-width: 27.5%;
+	display: grid;
+	grid-auto-rows: 7fr 3fr; grid-template-columns: 100%; row-gap: 5%;
+}
+
+#resultsOther {order: 2}
+
+.percBox {
+	order: 1;
+	font-family: FlamaSemibold, sans-serif;
+	font-size: 5.5vw; letter-spacing: -0.08vw;
+	color: #000; background-color: rgb(243,243,243);
+	width: calc(100% / 0.7); transform: scaleX(0.7);
+	transform-origin: left; overflow: hidden;
+	grid-row: 1; grid-column: 1;
+
+	font-variant-numeric: tabular-nums; text-align: center;
+	display: flex; align-items: center; align-content: center; justify-content: center; 
+}
+
+.votesBox {
+	order: 2;
+	font-family: FlamaSemiBold, sans-serif; font-size: 2.25vw; letter-spacing: 0.08vw;
+	color: rgb(30,30,30); background-color: rgb(243,243,243);
+	font-variant-numeric: tabular-nums;
+	width: calc(100% / 0.8); overflow: hidden;
+	transform: scaleX(0.8); transform-origin: left;
+	grid-row: 2; grid-column: 1;
+	display: flex; align-items: center; justify-content: center;
+}
+
+#resultsPercBoxOther {color: rgb(45,45,45); font-size: 4.25vw}
+#resultsVotesBoxOther {color: rgb(45,45,45); font-size: 2vw}
+
+#historyPanel {
+	position: fixed; display: flex; visibility: hidden;
+	top: 16.5vh; left: 0vw; height: 83.5vh; width: fit-content;
+	transition-delay: 0s;
+	flex-direction: row; justify-content: flex-start;
+	transition: left 0.7s ease-in-out, transform 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s linear 0.5s;
+	transform: translateX(calc(-100%)); transition-delay: left 0.5s;
+}
+
+#historyPanel * {cursor: default;}
+
+#historyPanel.visible {visibility: visible; transform: translateX(0); transition: transform 0.5s; left: 39vw; transition-delay: left 0s;}
+
+#historyPanelCover {
+	position: fixed;
+	top: 16.5vh; right: 0vw; height: 83.5vh; width: 0;
+	background-color: rgb(46,56,75); opacity: 0; transition: 0.5s;
+}
+
+#historyPanel.visible ~ #historyPanelCover {opacity: 1; width: 5.25vw}
+
+#historyPanelOne, #historyPanelTwo, #historyPanelThree, #historyPanelFour {
+	flex-direction: column; position: relative; display: flex; width: 13.9375vw;
+	background-color: rgb(205,205,205); box-shadow: 3px 0px 5px rgba(0,0,0,0.3);
+}
+
+.historyPanel:empty {display: none}
+
+#historyPanelOne {z-index: 4; order: 1;}
+#historyPanelTwo {z-index: 3; order: 2;}
+#historyPanelThree {z-index: 2; order: 3;}
+#historyPanelFour {z-index: 1; order: 4;}
+
+.historyPanelTitle{
+	height: 11.125vh; border-bottom: 0.3vh solid white; flex-direction: column;
+	justify-content: center; display: flex; align-items: flex-center;
+}
+
+.historyYear {
+	font-family: FlamaMedium; transform: scaleX(0.775);
+	font-size: 4.75vh; color: black; text-align: center;
+	font-variant-numeric: tabular-nums; line-height: 95%;
+}
+
+.historyMargin {
+	font-family: FlamaSemibold; transform: scaleX(0.8);
+	font-size: 3.5vh; color: #141414; text-align: center;
+	text-transform: uppercase; height: fit-content;
+	font-variant-numeric: tabular-nums; line-height: 100%;
+}
+
+.historyTotal {
+	font-family: FlamaBasic; letter-spacing: 0.05vw; transform: scaleX(0.8);
+	font-size: 3vh; color: rgb(20,20,20); text-align: center; line-height: 100%;
+}
+
+.historyPanelCand {
+	height: 21vh; flex-direction: column; pointer-events: none;
+	justify-content: center; display: flex; align-items: center;
+	border-bottom: 0.25vh solid white;
+}
+
+.historyCandName {
+	font-family: SemiMedium, sans-serif; transform: scaleX(0.75); pointer-events: none;
+	font-size: 5vh; height: fit-content; line-height: 4.5vh; color: black; text-align: center;
+	text-transform: uppercase;
+}
+
+.historyCandPerc {
+	font-family: FlamaSemibold, sans-serif; transform: scaleX(0.7); pointer-events: none;
+	font-size: 8.5vh; height: 7vh; line-height: 7vh; color: black; text-align: center;
+	font-variant-numeric: tabular-nums;
+}
+
+.historyCandVote {
+	font-family: FlamaBasic, sans-serif; transform: scaleX(0.8); pointer-events: none;
+	font-size: 4vh; height: 4vh; line-height: 4vh; color: black; text-align: center;
+	letter-spacing: 0.05vw;
+	font-variant-numeric: tabular-nums;
+}
+
+.historyCandVote:empty {display: none}
+
+#nationalMap {
+	position: fixed; top: 16.5vh; left: 0vw; width: 100vw; height: 83.5vh;
+	transition: 0.5s; pointer-events: none; display: inline;
+}
+
+#mainG {
+	will-change: transform;
+	z-index: 1;
+}
+
+#results.hidden ~ #filterLabels {
+	left: -0.1vh;
+	background-color: rgb(101,109,123);
+}
+
+#historyPanel.visible ~ #filterLabels {
+	top: 5.5vh; opacity: 0;
+}
+
+#resultsHouseGroups.visible ~ #resultsLegend {
+	width: 34.5vw;
+}
+
+#results.hidden ~ #resultsLegend {
+	left: 1vw;
+	width: 41.5vw;
+}
+
+#historyPanel.visible ~ #resultsLegend {
+	bottom: -18vw; opacity: 0;
+}
+
+#filterLabels {
+	position: fixed; top: 16.5vh; left: 39vw; width: fit-content; max-width: 61vw;
+	display: inline-grid; grid-template-columns: auto auto; grid-template-rows: repeat(auto-fit);
+	transition: 0.5s ease, transform 0s; min-height: 7vh; max-height: 11vh;
+	border-bottom: 0.2vh solid rgb(244,244,244);
+	justify-items: start; align-items: stretch;
+	border-collapse: collapse; grid-auto-flow: dense;
+	transform-origin: left center;
+}
+
+#mapLabelFilter, #mapLabelStat {
+	font-family: CondMedium; font-size: 5vh; text-align: left; color: #fff; 
+	height: 7vh; padding: 0 2vw 0 2vw;
+	text-transform: uppercase; text-overflow: hidden; white-space: nowrap;
+	cursor: default; user-select: none; -moz-user-select: none;
+	border-right: 0.2vh solid rgb(244,244,244);
+}
+
+#mapLabelStat {
+	z-index: 1; justify-self: stretch;
+}
+
+#mapLabelStatData.retired {
+	font-family: CondMedium; font-size: 3.5vh; text-align: left; color: #fff; 
+	padding: 0 2vw 0 2vw; line-height: 0.4; height: 4vh;
+	text-transform: uppercase; text-overflow: string; white-space: nowrap;
+	cursor: default; user-select: none; -moz-user-select: none; grid-column: 3;
+	justify-self: stretch; grid-row: 2/3;
+	z-index: 2;
+	border-right: 0.2vh solid rgb(244,244,244);
+}
+
+#mapLabelStatData {
+	font-family: CondMedium; font-size: 5vh; text-align: left; color: #fff; 
+	padding: 0 2vw 0 2vw; height: 7vh;
+	text-transform: uppercase; text-overflow: string; white-space: nowrap;
+	cursor: default; user-select: none; -moz-user-select: none; grid-column: 3;
+	justify-self: stretch; grid-row: 1/3;
+	z-index: 2; background-color: rgb(129, 137, 152);
+	border-right: 0.2vh solid rgb(244,244,244);
+}
+
+#mapLabelFilter {
+	display: grid; grid-row: 1/3; height: 100%;
+	place-items: center; align-self: stretch;
+	background-color: rgb(80, 87, 98);
+}
+
+#mapLabelStat {
+	background-color: rgb(103, 111, 126);
+}
+
+#mapLabelStatData:empty ~ #mapLabelStat {height: 100%}
+#mapLabelFilter:empty ~ #mapLabelStatData {grid-column: 2}
+
+#filterLabels:empty, #mapLabelFilter:empty, #mapLabelStat:empty, #mapLabelStatData:empty {
+	display: none;
+}
+
+#resultsLegend {
+	position: fixed; display: none; bottom: 1vw; left: 40vw; width: 41.5vw; height: 7vh;
+	transition: 0.5s ease;
+	flex-direction: row; justify-content: stretch;
+	justify-items: stretch;
+	border: 0.05vh solid rgb(245,245,245);
+	background-color: rgb(44,45,71);
+	overscroll-behavior-y: none; scroll-snap-type: both;
+	grid-template-columns: repeat(auto-fit, minmax(1fr, 1fr)) auto;
+	grid-template-rows: 4fr 6fr;
+	column-gap: 0.5vh; row-gap: 0.5vh;
+	border: 0.75vh solid rgb(44,45,71);
+	box-sizing: border-box;
+}
+
+#resultsLegendScale {
+	display: grid;
+	grid-area: 1 / 1 / 2 / 2;
+	grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
+	grid-template-rows: 1;
+	column-gap: 0.5vh;
+}
+
+#resultsLegendKeys {
+	display: grid;
+	grid-area: 2 / 1 / 3 / 2;
+	justify-items: stretch;
+	grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
+	grid-template-rows: 1;
+	column-gap: 0.5vh;
+}
+
+
+#resultsLegendScaleGradient {
+	background-color: rgb(255,255,255);
+}
+
+.resultsLegendScaleBox {
+	fill: rgb(255,255,255);
+}
+
+.resultsLegendKeysSteps {
+	justify-self: stretch; align-self: stretch;
+	font-family: CondMedium; font-size: 3.25vh; text-align: center; color: #fff; 
+	text-transform: uppercase; text-overflow: hidden; white-space: nowrap;
+	cursor: default; user-select: none; -moz-user-select: none; line-height: 1;
+}
+
+.resultsLegendKeysGradient {
+	justify-self: stretch; align-self: stretch;
+	font-family: CondMedium; font-size: 3.25vh; text-align: center; color: #fff; 
+	text-transform: uppercase; text-overflow: hidden; white-space: nowrap;
+	cursor: default; user-select: none; -moz-user-select: none; line-height: 1;
+}
+
+.resultsLegendKeysGradient:first-child {text-align: left}
+.resultsLegendKeysGradient:last-child {text-align: right}
+
+#textTime {
+	position: fixed; width: 20vw; left: 39vw; bottom: 1px;
+	font-family: FlamaMedium, sans-serif;
+	color: white; font-size: 3vh; line-height: 3vh;
+	font-variant-numeric: tabular-nums;
+}
+
+#mapBoundBox {position: fixed; pointer-events: none; top: 16.5vh; left: 44vw; width: 56vw; height: 83.5vh;}
+#mapCounties {position: fixed; top: 16.5vh; left: 200vw; width: 51vw; height: 85.5vh;}
+#mapCounties path {pointer-events: none}
+
+.mapCounty {
+	position: fixed; opacity: 1; pointer-events: none;
+	top: 16.5vh; left: 200vw; width: 51vw; height: 85.5vh;
+}
+
+.labelText {
+	font-family: CondBold; display: none;
+	font-size: 4px; letter-spacing: -2%; text-transform: uppercase; line-height: 1;
+	fill: white; stroke: #000; stroke-opacity: 0s; text-anchor: middle; opacity: 1;
+	stroke-width: 0.015%; stroke-linecap: butt; stroke-linejoin: miter;
+	alignment-baseline: middle; dominant-baseline: middle;
+	cursor: default;
+}
+
+.countyText {
+	font-family: CondBold; font-size: 28px; letter-spacing: -0.05px;
+	text-transform: uppercase;
+	fill: white; stroke: #000000; stroke-opacity: 1; text-anchor: middle; dominant-baseline: middle;
+	stroke-width: 0.05%; stroke-linecap: butt; stroke-linejoin: miter;
+	vector-effect: non-scaling-stroke;
+	transform-origin: 0 0; transition: 0.3s; transition-delay: 0.1s;
+}
+
+#countyLabelText {
+	font-family: CondMedium; opacity: 0;
+	fill: white; stroke: #000000; stroke-opacity: 1;
+	text-anchor: top; dominant-baseline: text-bottom; vertical-align: bottom; 
+	stroke-width: 0.075%; stroke-linecap: butt; stroke-linejoin: miter;
+	transform-origin: center bottom;
+	transition: 0.3s, font-size 0s, opacity 0.3s; transition-delay: 0s;
+}
+
+#mapNH text {
+	font-family: CondSemi; font-size: 28px; letter-spacing: -0.05vw;
+	text-transform: uppercase; 
+	fill: white; stroke: #000000; stroke-opacity: 1;
+	text-anchor: middle; dominant-baseline: middle;
+	transform: translate(-4px, -20px);
+	stroke-width: 0.05vw; stroke-linecap: butt; stroke-linejoin: miter;
+}
+
+svg circle {
+	position: absolute; fill: white; stroke: #000000; stroke-opacity: 1;
+	opacity: 0; stroke-width: 0; stroke-linecap: butt; stroke-linejoin: miter;
+	preserve-aspect-ratio: xMidYMid; vector-effect: non-scaling-stroke;
+	transition: 0s; transform-origin: initial center;
+	dominant-baseline: middle; alignment-baseline: middle;
+}
+
+#loadOverlay{fill: rgb(46,56,75); position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%;}
+
+n1 {font-family: CondBasic; letter-spacing: -0.05vw; font-size: 3vw;}
+n2 {font-family: CondBold, sans-serif; font-size: 4.25vw; letter-spacing: -0.02vw;}
+
+@keyframes stroke-width-animation {
+	0%, 100% {stroke-width: 1.75px; stroke: #fff}
+	50% {stroke-width: 4px; stroke: var(--projYellow)}
+}
+@keyframes cd-stroke-width-animation {
+	0%, 100% {stroke-width: 2.5px; stroke: #fff}
+	50% {stroke-width: 3.5px; stroke: var(--projYellow)}
+}
+@keyframes poll-close-stroke {
+	0%, 100% {stroke-width: 1px; stroke: #fff} 50% {stroke-width: 2px; stroke: #fff}
+}
+
+#road270box {
+	position: fixed; display: flex; background-color: rgb(46,56,75);
+	flex-direction: column; justify-content: start; align-items: center;
+  	left: 1.5vw; top: 18.5vh; width: 24vw; height: 80vh; font-height: 10vh;
+	transition: left 0s;
+}
+
+#road270box.hidden {left: -100vw; display: none;}
+
+#tallyCandidatesBox {
+	position: absolute; display: flex; order: 1;
+  	left: 0; top: 0; width: 100%; height: 18vh; overflow: visible;
+}
+
+#tallyCandidatesBoxLeft, #tallyCandidatesBoxRight {
+	position: absolute; top: 0; width: 50%; height: 100%;
+	background-color: rgb(128,255,128); transition: 0.75s; clip-path: inset(0 0 0 0);
+}
+
+#tallyCandidatesBoxLeftImg, #tallyCandidatesBoxRightImg {
+	position: absolute; top: 0; height: 100%; width: 50%;
+	object-fit: cover; transition: 0.75s; clip-path: inset(0 0 0 0);
+	overflow: hidden;
+	filter: saturate(50%); opacity: 0.6;
+	object-position: 35% center;
+}
+
+#tallyCandidatesBoxLeftText, #tallyCandidatesBoxRightText {
+	align-self: end; text-align: left; color: #fff; margin-left: 0.7vw; margin-bottom: 0.7vh;
+	font-family: CNNBold, sans-serif; font-size: 3.75vh; line-height: 1; overflow: visible;
+	width: 50%; letter-spacing: -0.02vw; transition: 0.75s font-size 0; clip-path:inset(0 0 0 0);
+}
+
+#tallyCandidatesBoxLeftText::first-line, #tallyCandidatesBoxRightText::first-line {
+	font-family: CNNRegular, sans-serif; font-size: 2.5vh; line-height: 3vh;
+}
+
+#tallyCandidatesBoxLeft, #tallyCandidatesBarLeft {background-color: var(--demColor)}
+#tallyCandidatesBoxRight, #tallyCandidatesBarRight {background-color: var(--repColor)}
+
+#tallyCandidatesTextBox {
+	position: absolute; top: 18vh; order: 2; width: 100%; height: 6vh;
+	background-color: var(--projYellow); color: var(--titleText);
+	font-family: CNNBold, sans-serif; font-size: 4vh; line-height: 6.25vh;
+	white-space: nowrap; text-align: center; letter-spacing: -0.03vw;
+}
+
+#tallyCandidatesBars {
+	display: flex; position: absolute; order: 3;
+  	left: 0; width: 100%; height: 56vh; top: 24vh;
+}
+
+#tallyCandidatesBarBackground {
+	position: absolute; z-index: -1;
+	top: 0; width: 100%; height: 100%;
+	background-color: rgb(43, 52, 70);
+}
+
+#tallyCandidateTotalLeft, #tallyCandidateTotalRight {
+	position: absolute; text-align: center;
+	font-family: CNNMedium; font-size: 8vh; line-height: 8vh;
+	width: 50%; height: 8vh; color: #fff;
+	letter-spacing: -0.02vw;
+	transition: 0.75s;
+	font-variant-numeric: tabular-nums;
+}
+
+#tallyCandidateTotalLeftLabel, #tallyCandidateTotalRightLabel {
+	position: absolute; text-align: center;
+	font-family: CNNRegular; font-size: 3.75vh; line-height: 3.75vh;
+	width: 50%; height: 3.75vh; color: #fff; letter-spacing: -0.02vw;
+	transition: 0.75s;
+}
+
+.road270WinPane {
+	position: absolute;
+  	left: 0; top: 0; width: 100%; height: 18vh; overflow: hidden;
+	clip-path: inset(100% 0 0 0);
+	transition: 0.7s;
+}
+
+#tallyCandidateDemWin {background-color: var(--demColor)}
+#tallyCandidateGopWin {background-color: var(--repColor)}
+
+.road270WinPane img {
+	position: absolute; top: -20%; height: 140%; width: 100%;
+	object-fit: cover; transition: 0.7s;
+	overflow: hidden; transform: translateY(18vh);
+}
+
+.road270WinPane.show {
+	clip-path: inset(0% 0 0 0);
+	z-index: 25;
+}
+
+.road270WinPane.show #tCDemWinImg, .road270WinPane.show #tCGopWinImg {
+	transform: translateY(0vh);
+}
+
+#tallyCandidatesBarLeft, #tallyCandidatesBarRight {
+	right: 0; top: 0; width: 50%; height: 100%; transition: 0.75s; clip-path: inset(100% 0 0 0);
+}
+
+#tallyCandidatesBoxLeft, #tallyCandidatesBoxLeftImg, #tallyCandidatesBoxLeftText, #tallyCandidateTotalLeft, #tallyCandidatesBarBackgroundLeft, #tallyCandidateTotalLeftLabel {left: 0}
+#tallyCandidatesBoxRight, #tallyCandidatesBoxRightImg, #tallyCandidatesBoxRightText, #tallyCandidateTotalRight, #tallyCandidatesBarBackgroundRight, #tallyCandidateTotalRightLabel {right: 0}
+
+#boxPollClosing {
+	position: fixed; display: flex;
+	top: 16.5vh; left: 0; width: 39vw; height: 83.5vh;
+	background-color: rgb(215,215,215);
+	box-shadow: 0.05vh 0px 1vh 0.5vh rgba(0,0,0,0.3);
+	flex-direction: column; flex-wrap: nowrap; align-items: center;
+	overflow: auto; visibility: visible; transition: visibility 0.5s, transform 0.5s;
+}
+
+#boxPollClosing.hidden {
+	transform: translateX(-42vw);
+	visibility: hidden;
+}
+
+#boxPollClosingHeading {
+	order: 1;
+	font-family: FlamaMSNBCMonoSemi, sans-serif; color: rgb(35,35,35);
+	font-size: 10vh; background-color: rgb(254,207,10);
+	margin-top: 1.5vh; width: 90%;
+	height: 8vh; line-height: 7.25vh; padding: 1vh 0 1vh 0; align-self: flex-center;
+	white-space: nowrap; text-overflow: string; text-align: center; letter-spacing: -0.15vw;
+	box-shadow: 0px 0.05vh 0.7vh rgba(0,0,0,0.15); font-variant-numeric: tabular-nums;
+}
+
+#boxPollClosingHeading:empty {display: none}
+#boxPollClosingHeading:empty ~ #boxPollClosingStates {margin-top: 3vh}
+
+#boxPollClosingStates {
+	order: 2; display: flex; margin-top: 2vh; margin-bottom: 0.5vh;
+	width: 39vw; max-height: 80vh; transform: scaleX(0.9); transform-origin: center;
+	flex-direction: row; flex-wrap: wrap; overflow: auto;
+	column-gap: 0.7vh; row-gap: 0.7vh;
+}
+
+#boxPollClosingStates span {
+	font-family: CondMedium; font-size: 6.5vh; letter-spacing: -0.025vw;
+	width: 100%; min-width: 17.15vw;
+	color: var(--projYellow); background-color: var(--titleText);
+	text-align: center; text-transform: uppercase; overflow: hidden; white-space: nowrap;
+	padding: 1vh 1vw 1vh 1vw;
+}
+
+#boxPollClosingStates.small span {font-size: 10.5vh; line-height: 10.5vh; width: 100%; height: 10.5vh;}
+#boxPollClosingStates.medium span {font-size: 8.5vh; line-height: 7.5vh; width: 100%; height: 7.5vh;}
+#boxPollClosingStates.large span {font-size: 5vh; line-height: 5vh; width: 40%; height: 5vh;}
+
+#boxPollClosingStates span.red {background-color: var(--repColor); color: #fff;}
+#boxPollClosingStates span.blue {background-color: var(--demColor); color: #fff;}
+#boxPollClosingStates span.nocall {color: var(--titleText); background-color: var(--projYellow);}
+
+#buttonNextPollClosing {margin-top: 1vh;}
+
+#drawIcon {fill: rgb(85,85,85); stroke-width: 0;}
+#drawIcon.selected {fill: rgb(76,160,65)}
+
+#pathDrawn {
+	fill: none; stroke-width: 5px; stroke: rgb(116,180,55); stroke-linecap: round; vector-effect: non-scaling-stroke; z-index: 9999; pointer-events: none;
+	}
+
+#clearDraw {display:none}
+#clearDraw.visible {display: flex;}
+
+#resultsBoxHouse {
+	width: 37vw; left: 1vw; height: min-content; transform-origin: center;
+	flex-direction: column; flex-wrap: nowrap;
+	column-gap: 0.4vw; row-gap: 1vh; min-height: 97%; max-height: 99%; margin-top: 1.5vh;
+	display: grid; grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr);
+	align-content: flex-start; justify-content: flex-start;
+	overscroll-behavior-y: none; scroll-snap-type: both;
+}
+
+#resultsBoxHouse span:not(#resultsBoxHouseDistricts, .districtBox, .districtHeading) {
+	overflow: hidden; color: #fff; text-transform: uppercase;
+	font-variant-numeric: tabular-nums;
+}
+
+#resultsBoxHouseTotals {
+	width: 100%; height: fit-content; order: 10;
+	column-gap: 0.7vh; row-gap: 0.7vh; padding-bottom: 1.05vh;
+	display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto;
+}
+
+#resultsBoxHouseHeading {
+	background-color: rgb(110,110,110);
+	grid-row: 1; grid-column: 1/3;
+	height: 6.5vh;
+	display: grid; grid-template-rows: auto;
+	grid-template-columns: 1fr repeat(3, 5.75vh) 0.5vh;
+	align-items: center;
+}
+
+#resultsBoxHouseHeadingText {
+	font-family: CondMedium; font-size: 5vh; line-height: 6.5vh;
+	text-align: left; text-indent: 1.5vh;
+	grid-column: 1;
+}
+
+#resultsBoxHouseHeadingReporting {
+	font-family: CondMedium; font-size: 5vh; line-height: 6.5vh;
+	text-align: left; text-indent: 1.5vh;
+	height: 6.5vh;
+	grid-row: 3; grid-column: 1/3;
+}
+
+#resultsBoxHouseHeadingReporting:empty {display: none}
+
+.resultsHouseButton {
+	font-family: CondBasic; text-align: center; opacity: 0.6;
+	height: 5vh; width: 5vh; font-size: 2.5vh; line-height: 5vh;
+	border: 0.1vw solid rgb(210,210,210); border-radius: 50%; color: #fff;
+	cursor: default;
+}
+
+.resultsHouseButton.selected {
+	background-color: rgb(150,150,150); opacity: 1;
+}
+
+#resultsBoxHouseTotals .totalsOne, #resultsBoxHouseTotals .totalsTwo {
+	display: inline-flex; grid-row: 2; height: 13.5vh;
+	flex-direction: column; justify-content: center;
+}
+
+#resultsBoxHouseTotals .totalsOne, .detailsOne {background-color: var(--demColor)}
+#resultsBoxHouseTotals .totalsTwo, .detailsTwo {background-color: var(--repColor)}
+
+#resultsBoxHouseTotalsReporting {
+	height: 4.6vh; background-color: rgb(110,110,110);
+	text-align: center; grid-row: 3; grid-column: 1/3;
+	font-family: CondBold; color: rgb(242,242,242); font-size: 4vh; line-height: 4.4vh;
+}
+
+.totalFig {
+	display: inline-block; order: 1; transform: scaleX(0.825); transform-origin: center; line-height: 0.925;
+	font-family: FlamaSemibold; font-size: 8.75vh;
+	text-align: center; letter-spacing: -0.03vw; height: auto;
+}
+
+.totalLabel {
+	display: inline-block; order: 2; height: auto;
+	font-family: CondBasic; font-size: 4vh;
+	text-align: center; line-height: 0.925;
+}
+
+#resultsBoxHouseTotals .totalDetails {
+	display: inline-flex; grid-row: 3; justify-content: center; height: 6vh;
+}
+
+#resultsBoxHouseTotals .totalDetails:empty {
+	display: none; grid-row: auto;
+}
+
+.totalDetails span {
+	font-size: 4vh; line-height: 6vh;
+}
+
+.detailsFig {font-family: FlamaMedium; transform: scaleX(0.725); transform-origin: right;}
+.detailsText {font-family: CondBasic;}
+.detailsFig::after {content: "\00a0 ";}
+
+#resultsBoxHouseTotalsReporting:empty {display: none}
+
+#resultsBoxHouseTotalsOneLabel:empty, #resultsBoxHouseTotalsOneSeats:empty, #resultsBoxHouseTotalsTwoLabel:empty, #resultsBoxHouseTotalsTwoSeats:empty {display:none}
+
+#resultsBoxHouseDistricts {
+	display: flex; width: 100%;
+	flex-direction: row; flex-wrap: wrap; overflow: auto;
+	column-gap: 0.4vw; row-gap: 0.43vw; order: 20;
+	align-content: flex-start; justify-content: flex-start;
+	overscroll-behavior-y: none; scroll-snap-type: both;
+}
+
+#resultsBoxHouse.hidden {display: none;}
+
+.districtHeading {
+	font-family: FlamaMedium, sans-serif; transform: scaleX(0.75); color: var(--titleText); width: 100%;
+	font-size: 4vh; line-height: 4.5vh; text-align: left; text-transform: uppercase; transform-origin: left;
+}
+
+.districtBox {
+	order: 2; cursor: default;
+	background-color: rgb(43,43,43); width: 15.7%; height: 3.5vh; padding: 1.25% 1.7% 1.25% 1.7%;
+	font-family: FlamaMSNBCMonoSemi; font-size: 5vh; line-height: 3.4vh; color: rgb(254,207,10);
+	text-align: center; text-transform: uppercase; white-space: nowrap;
+}
+
+.districtBoxPollsClosed {
+	color: rgba(254,207,10,0.6); order: 9999;
+}
+
+.districtBoxHidden {
+	display: none;
+}
+
+.districtBoxGain {
+	background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.15), rgba(255,255,255,0.15) 10px, rgba(0,0,0,0.25) 10px, rgba(0,0,0,0.15) 20px);
+	box-shadow: inset 0 0 0 3px var(--projYellow), 0 0 1px rgba(0,0,0,0.3);
+	text-shadow: 0em 0em 0.075em rgba(0,0,0,0.5);
+}
+
+.districtBoxDem {background-color: rgb(20,140,230); color: white;}
+.districtBoxRep {background-color: rgb(189,18,28); color: white;}
+.districtBoxInd {background-color: rgb(133,61,204); color: white;}
+.districtBoxRunoff {background-color: rgb(254,207,10); color: rgb(43,43,43);}
+
+.districtBoxTie {background-color: rgb(161,161,161); color: rgb(15,15,15)}
+.districtBoxDemLead {background-color: rgb(146,212,252); color: rgb(35,35,35)}
+.districtBoxRepLead {background-color: rgb(255,157,153); color: rgb(35,35,35)}
+.districtBoxOthLead {background-color: rgb(204,204,204); color: rgb(35,35,35)}
+.districtBoxIndLead {background-color: #ccaeea; color: rgb(35,35,35)}
+
+.cdGroupBoxDem {background-color: rgb(20,140,230); color: white;}
+.cdGroupBoxRep {background-color: rgb(189,18,28); color: white;}
+.cdGroupBoxInd {background-color: rgb(133,61,204); color: white;}
+.cdGroupBoxRunoff {background-color: rgb(254,207,10); color: rgb(43,43,43);}
+
+.cdGroupBoxTie {background-color: rgb(161,161,161); color: rgb(15,15,15)}
+.cdGroupBoxDemLead {background-color: rgb(146,212,252); color: rgb(35,35,35)}
+.cdGroupBoxRepLead {background-color: rgb(255,157,153); color: rgb(35,35,35)}
+.cdGroupBoxOthLead {background-color: rgb(204,204,204); color: rgb(35,35,35)}
+.cdGroupBoxIndLead {background-color: #ccaeea; color: rgb(35,35,35)}
+
+.cdGroupBoxGain {
+	background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.25), rgba(255,255,255,0.25) 10px, rgba(0,0,0,0.25) 10px, rgba(0,0,0,0.25) 20px);
+	box-shadow: inset 0 0 0 4.5px var(--projYellow), 0 0 1px rgba(0,0,0,0.3);
+	text-shadow: 0em 0em 0.075em rgba(0,0,0,0.5);
+}
+
+.cdGroupBoxPollsClosed {color: rgba(254,207,10,0.6)}
+
+#electoralVoteMaine, #electoralVoteNebraska {
+	position: fixed; background-color: rgb(43,43,43);
+	width: fit-content; height: 24vh; left: 50vw; top: 70vh; 
+	display: none; flex-direction: column; flex-wrap: wrap; justify-content: center;
+}
+
+#electoralVoteMaine {left: 65vw; top: 35vh;}
+#electoralVoteNebraska {left: 43vw; top: 55vh;}
+
+#electoralVoteMaine.visible, #electoralVoteNebraska.visible {display: flex;}
+
+.evHeading {
+	display: block; order: 1; height: 8vh; background-color: rgb(135,145,160);
+	font-family: FlamaBasic; transform: scaleX(0.7); color: rgb(250,250,250);
+	text-align: center; text-transform: uppercase; white-space: nowrap;
+	font-size: 6vh; line-height: 8vh; width: 100%;
+}
+
+.evBox {
+	order: 2; height: calc(16vh - 1.5vw); background-color: rgb(86,96,108);
+	display: flex; flex-direction: row; flex-wrap: nowrap;
+	padding: 0.75vw; column-gap: 0.75vw;
+}
+
+.evBox > * {
+	font-family: FlamaMedium; color: rgb(250,250,250);
+	width: 6vw; background-color: rgb(135,145,160);
+	font-size: 4vh; line-height: 4vh;
+	display: grid; grid-template-rows: 0.75fr 2% 0.75fr; grid-template-columns: 17.5% 65% 17.5%;
+	text-align: center; vertical-align: middle;
+}
+
+.evBox > * span {display: flex; align-items: center; justify-content: center;}
+
+#electoralVoteMaine:after {
+	content: " "; position: absolute; right: -2.9vh; top: 1vh;
+	border-top: 3vh solid transparent; border-bottom: 3vh solid transparent;
+  	border-left: 3vh solid rgb(135,145,160); border-right: none;
+}
+
+#electoralVoteNebraska:after {
+	content: " "; position: absolute; left: calc(14vw - 3vh); top: -2.9vh;
+	border-right: 3vh solid transparent; border-left: 3vh solid transparent;
+  	border-bottom: 3vh solid rgb(135,145,160); border-top: none;
+}
+
+.evBox * span:nth-child(1) {grid-row: 1/2; grid-column: 1/4; font-size: 5vh; transform: scaleX(0.775)}
+.evBox * span:nth-child(2) {grid-row: 2/3; grid-column: 2/3; background-color: white;}
+.evBox * span:nth-child(3) {grid-row: 3/4; grid-column: 1/4; font-family: FlamaBasic; transform: scaleX(0.8)}
+
+.evBoxState {stroke: #fff; stroke-width: 3px;}
+
+#appPresidentProjections {
+	display: none; position: fixed; top: 18.5vh; left: 2vw; width: 96vw; height: 79.5vh;
+	grid-template-columns: 24% 16% 16% 16% 24%;
+	grid-template-rows: auto 1fr;
+	column-gap: 1%; row-gap: 0.75vw;
+}
+
+#appPresidentProjections > .head {
+	grid-row: 1;
+	font-family: AltGoth2; text-transform: uppercase; color: #fff; 
+	height: 6vh; font-size: 6vh; line-height: 1; text-align: center;
+}
+
+.projGroup {
+	background-color: rgb(59,71,91);
+	grid-row: 2; border-radius: 1.25vw;
+	display: grid; padding: 0.75vw 0.75vw 0.75vw 0.75vw; column-gap: 0.6vw; row-gap: 0.6vw;
+	grid-template-columns: 1fr; align-content: flex-start;
+}
+
+.projGroup:first-of-type, .projGroup:last-of-type {
+	grid-template-columns: 1fr 1fr;
+	column-gap: 0.6vw; row-gap: 0.6vw;
+}
+
+.projState {
+	width: 100%; height: 5.5vh; border-radius: 1vw;
+	background-color: rgb(22,31,45); border: 0.05px solid rgba(255,255,255,0.4);
+	display: grid; grid-template-columns: 1fr auto; color: rgb(245,245,245);
+}
+
+.projState.red {background-color: rgb(189,18,28);}
+.projState.blue {background-color: rgb(20,140,230);}
+
+.projState > span {
+	font-family: AltGoth3;
+	height: 5.5vh; font-size: 4.75vh; line-height: 4.75vh;
+	cursor: default;
+}
+
+.projState > span:nth-child(1) {margin-left: 0.75vw}
+.projState > span:nth-child(2) {
+	margin-right: 0.75vw; letter-spacing: 0.03vw;
+	line-height: 5.5vh;
+	font-family: FlamaMedium, sans-serif;  transform: scaleX(0.775); transform-origin: right;
+}
+
+#appSenateWhatIfGrid {
+	display: none; position: fixed;
+	top: 18.5vh; left: 1vw; width: 93vw; height: 81.5vh;
+
+	grid-template-columns: 1fr 0.1% 1fr 0.1% 1fr;
+	grid-template-rows: 0.225fr 0.775fr;
+	column-gap: 1.5vw; row-gap: 1.5vw;
+}
+
+.col {
+	display: grid; align-content: start;
+	grid-template-columns: repeat(4,1fr); max-height: 100%;
+	row-gap: 1.5vh; column-gap: 1vh; overflow-x: hidden; overflow-y: auto;
+	overscroll-behavior-y: none;
+}
+
+#appSenateWhatIfGrid > .col {grid-row: 2}
+#appSenateWhatIfGrid > * {cursor: pointer;}
+
+.gridDivider {
+	background-color: #fff; width: 0.25vw;
+}
+
+.grid-square {
+	min-width: 15%; aspect-ratio: 1.5; border-radius: 1vh;
+	display: inline-block; text-align: center;
+	font-family: CondMedium; line-height: 4.4vw; font-size: 4.5vw;
+	background-color: rgb(105,114,131); color: #fff;
+}
+
+#divA {grid-column: 2; grid-row: 1/3}
+#divB {grid-column: 4; grid-row: 1/3}
+
+#gridLeft {grid-column: 1;}
+#gridCenter {grid-column: 3;}
+#gridRight {grid-column: 5;}
+
+.sortable-a {color: #fff}
+.sortable-b {background-color: rgb(255,255,255,0.1); color: rgb(0,0,0,0)}
+
+.st {
+	font-family: StateFace;
+	font-size: 10vh;
+	line-height: 12vh;
+	display: block;
+	text-rendering: optimizeLegibility;
+}
+
+.senateTally {
+	display: inline-flex;
+	grid-row: 1/2; grid-column: 1;
+	background-color: rgb(18,142,229);
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.tallyFig {
+	display: inline-block;
+	background-color: #fff;
+	font-family: FlamaMSNBCMonoSemi, sans-serif;
+	font-size: 9vh; line-height: 8.25vh;
+	height: 8.5vh; width: 25%; letter-spacing: -0.1vw;
+	text-align: center; font-variant-numeric: tabular-nums;
+	color: rgb(45,45,45); 
+}
+
+.tallyDesc {
+	font-family: CondMedium; text-transform: uppercase; color: #fff; 
+	height: 6vh; font-size: 6vh; line-height: 6.75vh;
+}
+
+.g1 {grid-column: 1; background-color: rgb(15, 111, 179)}
+.g2 {grid-column: 3; background-color: rgb(85,95,105)}
+.g3 {grid-column: 5; background-color: rgb(151,15,32)}
+
+.g1 > .tallyFig {color: rgb(11,85,137)}
+.g2 > .tallyFig {color: rgb(55,60,65)}
+.g3 > .tallyFig {color: rgb(151,15,32)}
+
+#gridLeft > .grid-square:not(.sortable-b) {background-color: rgb(16, 107, 198); color: #fff}
+#gridRight > .grid-square:not(.sortable-b) {background-color: rgb(189,18,28); color: #fff}
+
+
+#appGraphics {
+	display: none;
+	pointer-events: none;
+	background-color: rgba(255,255,0,0);
+	position: fixed; top: 16.5vh; left: 0vw; width: 100vw; height: 83.5vh;
+}	
+
+#appGraphics_heading {
+	display: none; position: fixed;
+  	top: 0; left: 0; width: 100vw; height: 16.5vh;
+	background-color: rgb(242,242,242);
+	box-shadow: 0px 0.05vh 1vh rgba(0,0,0,0.3);
+
+	font-family: AltGoth3, sans-serif;
+	font-size: 16vh; text-indent: 2.5vw; text-align: left; text-transform: uppercase;
+	letter-spacing: -0.15vw; line-height: 14.25vh;
+	white-space: nowrap;
+}
+
+#appGraphics_bkgd {
+	display: none; pointer-events: none;
+	position: fixed; top: 16.5vh; left: 0vw; width: 100vw; height: 83.5vh;
+}
+
+.aG_imageBox, .aG_imageBorder {
+	display: none; pointer-events: none;
+	transform: scale(0.8); transform-origin: center;
+	position: fixed; top: 16.5vh; left: -2.5vw; width: 52.5vw; height: 83.5vh;
+}
+
+.aG_imageBox {box-shadow: inset 0 0 120px 50px rgba(0,0,0,.65);}
+.aG_imageBorder {opacity: 1; box-shadow: inset 0 0 0 3px #fff;}
+
+#appGraphics_imageBox_dem {background-color: rgb(10,105,192)}
+#appGraphics_imageBox_rep {background-color: rgb(189,18,28)}
+
+#appGraphics_bkgd_gradient {
+	display: none; pointer-events: none;
+	position: fixed; top: 16.5vh; left: 0vw; width: 100vw; height: 83.5vh;
+	background: linear-gradient(to bottom, rgba(0,0,0,0.7) 16.5%, rgba(0,0,0,0) 95%);
+}
+
+#appGraphics_biden, #appGraphics_trump {
+	display: none; object-fit: cover;
+	transform: scale(0.8); transform-origin: center;
+	position: fixed; top: 16.5vh; left: -2.5vw; width: 52.5vw; height: 83.5vh;
+}
+
+#appGraphics.tooEarlyToCall .aG_imageBox {box-shadow: inset 0 0 120px 50px rgba(0,0,0,.475);}
+
+#appGraphics.tooEarlyToCall #appGraphics_imageBox_dem,
+#appGraphics.tooEarlyToCall #appGraphics_biden,
+#appGraphics.tooEarlyToCall #appGraphics_imageBorder_dem  {
+	left: 12.5vw; width: 40vw; height: 60vh; top: 19vh;
+}
+
+#appGraphics.tooEarlyToCall #appGraphics_imageBox_rep,
+#appGraphics.tooEarlyToCall #appGraphics_trump,
+#appGraphics.tooEarlyToCall #appGraphics_imageBorder_rep {
+	left: 47.5vw; width: 40vw; height: 60vh; top: 19vh;
+}
+
+#appGraphics_text {
+	display: none;
+	pointer-events: none;
+	background-color: rgba(255,255,0,0);
+	position: fixed; top: 24.85vh; left: 47.5vw; width: 47.5vw; height: 66.8vh;
+	grid-auto-rows: 20vh 1fr; grid-template-columns: 20vh 1fr; row-gap: 4vh; column-gap: 3vh;
+}
+
+#appGraphics_tick {
+	box-shadow: inset 0 0 0 2px #eee, inset 0 0 70px 20px rgba(0,0,0,.65);
+	grid-row: 1; grid-column: 1;
+	font-family: Wingdings; text-align: center;
+	font-size: 24vh; color: rgb(254,207,10); line-height: 25vh;
+}
+
+#appGraphics_candName {
+	grid-row: 2; grid-column: 1/2;
+	font-family: CondMedium, sans-serif;
+	font-size: 26vh; line-height: 21vh;
+	text-align: left; letter-spacing: -0.2vw;
+	color: rgb(252,252,252); 
+}
+
+#appGraphics_projWinner {
+	grid-row: 1; grid-column: 2;
+	align-self: stretch;
+	font-family: CondSemi, sans-serif;
+	font-size: 12vh; line-height: 9.75vh;
+	text-align: left;
+	color: rgb(254,207,10);
+}
+
+#appGraphics_tetc_text {
+	display: none;
+	position: fixed; top: 76.5vh; left: 16.5vw; width: 67vw; height: 15vh;
+	font-family: CondSemi; font-size: 14vh; line-height: 14vh; text-align: center;
+	background-color: rgb(242,242,242); color: rgb(24,24,24);
+}
+
+.countyBubble {
+	fill-opacity: .5; opacity: 1;
+	stroke: #fff; stroke-width: 1px; stroke-opacity: 1;
+}
+
+.dragBox {
+	position: absolute;
+	transform-origin: left top;
+	top: calc(58.25vh - 9vw); left: 34vw;
+	width: 44.8vw; height: 25.2vw;
+	border: 1.5px solid rgb(27,32,52);
+	background-color: rgb(27,32,52);
+	transform: scale(0);
+	overflow: hidden;
+}
+
+.dragBox > .container {
+	position: absolute;
+	top: 0; left: 0; width: 44.8vw; height: 25.2vw;
+	transform-origin: 0 0;
+}
+
+.dragBox > .container > .header {
+	position: absolute; top: 0; left: 0; height: 17.5%; width: 100%;
+	background-color: rgb(230, 230, 230);
+}
+
+.dragBox > .container > .headerText {
+	position: absolute; top: 0; left: 2%; height: 17.5%;
+	font-family: CondSemi; font-size: 3.53vw; line-height: 4.41vw;
+	color: var(--titleText);
+	text-transform: uppercase; white-space: nowrap; text-overflow: string;
+	transform-origin: 0 0;
+}
+
+.dragBox > .container > .boxSource {
+	position: absolute; top: 94%; left: 2%; height: 6%;
+	font-family: CondSemi; font-size: 0.9vw; line-height: 1.512vw;
+	color: rgb(222,222,222);
+	text-transform: uppercase; white-space: nowrap; text-overflow: string;
+	transform-origin: 0 0;
+}
+
+.dragBox > .container > svg text {
+	color: white;
+	cursor: default;
+}
+
+#dragHistory {
+	top: calc(58.25vh - 9vw); left: 51.25vw; width: 44.8vw; height: 25.2vw;
+}
+
+#dragProjectionsContainerGrid > span {
+	font-family: CondMedium; color: rgb(230, 230, 230);
+	font-size: 3.2vw; line-height: 3.2vw;
+	width: 100%;
+}
+
+#dragProjectionsContainerGrid {
+	display: flex;
+	position: absolute;
+	text-transform: uppercase;
+
+	display: flex; flex-direction: row;
+	justify-content: center; align-items: center;
+
+	top: 4.41vw; left: 0; height: 20.79vw; width: 44.8vw;
+	transform-origin: 0 0; text-align: center;
+	font-family: CondMedium; color: rgb(230, 230, 230);
+	font-size: 7.5vw; line-height: 1;
+	align-items: center;
+	cursor: default;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+#dragProjectionsContainerGrid.small > span {width: 50%;}
+#dragProjectionsContainerGrid.medium > span {font-size: 5vw; width: 100%;}
+#dragProjectionsContainerGrid.large > span {font-size: 7vw; width: 100%;}
+
+.svgGraphText {
+	font-family: FlamaMSNBCMonoSemi, CondSemi, sans-serif; font-size: 1.7vw;
+	fill: rgb(255,255,255);
+	text-transform: uppercase; white-space: nowrap; text-overflow: string;
+}
+
+.dragBox path {
+	fill: none;
+}

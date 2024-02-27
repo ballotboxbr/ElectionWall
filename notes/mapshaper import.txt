@@ -1,0 +1,100 @@
+d3.geoMercatorUsa = function() {
+	let scale = 794; let width = 800; let height = 800;
+
+	let continental = d3.geoMercator().center([-95.75, 41]).translate([width * 0.5, height * 0.42]).scale(scale);
+	let hawaii = d3.geoMercator().center([-157.25, 20.8]).translate([width * 0.3, height * 0.7]).scale(scale);
+	let alaska = d3.geoMercator().center([-152.5, 65]).translate([width * 0.15, height * 0.7]).scale(scale * 0.2)
+	let pr = d3.geoMercator().center([-98.58, 39.83]).translate([width * 0.15, height * 0.7]).scale(scale * 0);
+
+	let projection = d3.geoTransform({
+		point: function(x, y) {
+			if (y < 50 && x < -140) {
+				this.stream.point(...hawaii([x, y]));
+			} else if (y > 50) {
+				this.stream.point(...alaska([x, y]));
+			} else if (y < 25 && x > -67 && x < -63) {
+				this.stream.point(...pr([x, y]));
+			} else {
+				this.stream.point(...continental([x, y]));
+			}
+		}
+	});
+	return projection;
+}
+
+d3.json("https://raw.githubusercontent.com/loganpowell/census-geojson/master/GeoJSON/500k/2022/congressional-district.json")
+	.then(function(data) {
+		var width = 800;
+		var height = 800;
+		var projection = d3.geoMercator()
+			.scale(1000)
+			.translate([400, 400]);
+
+		var path = d3.geoPath(d3.geoMercatorUsa());
+		var g = d3.select("#nationalMap").append("g").attr("class", "state");
+
+		var paths = g.selectAll("path").data(simplifiedPaths).enter().append("path").attr("d", path);
+	});
+
+	var gA = d3.select("#nationalMap").select("g");
+	gA.selectAll("*").each(function() {d3.select(this.parentNode).append(() => this)});
+	gA.remove();
+
+
+d3.json("https://raw.githubusercontent.com/loganpowell/census-geojson/master/GeoJSON/500k/2022/congressional-district.json")
+  .then(function(data) {
+    var width = 800;
+    var height = 800;
+    var projection = d3.geoMercator()
+      .scale(1000)
+      .translate([400, 400]);
+		var path = d3.geoPath(d3.geoMercatorUsa());
+		var g = d3.select("#nationalMap").append("g").attr("class", "state");
+		var paths = g.selectAll("path").data(data.features).enter().append("path").attr("d", path);
+	});
+
+var gA = d3.select("#nationalMap").select("g");
+gA.selectAll("*").each(function() {d3.select(this.parentNode).append(() => this)});
+gA.remove();
+
+
+??
+
+var scriptTag = document.createElement("script");
+scriptTag.setAttribute("src", "https://unpkg.com/topojson@3.0.2/dist/topojson.js");
+document.body.appendChild(scriptTag);
+
+d3.geoMercatorUsa = function() {
+	let scale = 794; let width = 800; let height = 800;
+
+	let continental = d3.geoMercator().center([-95.75, 41]).translate([width * 0.5, height * 0.42]).scale(scale);
+	let hawaii = d3.geoMercator().center([-157.25, 20.8]).translate([width * 0.3, height * 0.7]).scale(scale);
+	let alaska = d3.geoMercator().center([-152.5, 65]).translate([width * 0.15, height * 0.7]).scale(scale * 0.2)
+	let pr = d3.geoMercator().center([-98.58, 39.83]).translate([width * 0.15, height * 0.7]).scale(scale * 0);
+
+	let projection = d3.geoTransform({
+		point: function(x, y) {
+			if (y < 50 && x < -140) {
+				this.stream.point(...hawaii([x, y]));
+			} else if (y > 50) {
+				this.stream.point(...alaska([x, y]));
+			} else {
+				this.stream.point(...continental([x, y]));
+			}
+		}
+	});
+	return projection;
+}
+
+d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json")
+  .then(function(topo) {
+    var geojson = topojson.feature(topo, topo.objects.states);
+    var width = 800; var height = 800;
+		var path = d3.geoPath(d3.geoMercatorUsa());
+		var g = d3.select("#nationalMap").append("g").attr("class", "state");
+		var paths = g.selectAll("path").data(geojson.features).enter().append("path").attr("d", path);
+	});
+
+var gA = d3.select("#nationalMap").select("g");
+gA.selectAll("*").each(function() {d3.select(this.parentNode).append(() => this)});
+gA.remove()

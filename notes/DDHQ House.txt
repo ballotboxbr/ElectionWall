@@ -1,0 +1,409 @@
+{
+    "race_id": 15796,
+    "test_data": "false",
+    "year": 2022,
+    "state_id": 1,
+    "state": "Alabama",
+    "abb": "AL",
+    "ecvotes": null,
+    "election_type_id": 1,
+    "name": "General Election",
+    "race_date": "2022-11-08",
+    "office_id": 3,
+    "office": "US House",
+    "cd_id": 0,
+    "district": "1",
+    "party_id": 0,
+    "party": null,
+    "level": "Federal/District",
+    "advance_candidates": "false",
+    "last_updated": "2022-11-12 20:56:02",
+    "marquee_race": "true",
+    "abev_expected": "false",
+    "toplineResults": {
+        "votes": {
+            "12042": 139854,
+            "44282": 26197
+        },
+        "voting_data": {
+            "12042": {
+                "absentee_ballots_early_votes": 0,
+                "election_day_votes": 0
+            },
+            "44282": {
+                "absentee_ballots_early_votes": 0,
+                "election_day_votes": 0
+            }
+        },
+        "estimated_votes": {
+            "estimated_votes_low": 166051,
+            "estimated_votes_mid": 166218,
+            "estimated_votes_high": 166384
+        },
+        "precincts": {
+            "total": 0,
+            "reporting": 213
+        },
+        "called": 12042,
+        "called_candidates": [
+            12042
+        ],
+        "call_times": [
+            {
+                "cand_id": 12042,
+                "call_time": "2022-11-09T00:59:54+00:00"
+            }
+        ],
+        "advancing_candidates": [],
+        "advance_times": [],
+        "called_time": "2022-11-09T00:59:54+00:00"
+    },
+    "vcuResults": {
+        "votes": {
+            "12042": 139854,
+            "44282": 26197
+        },
+        "voting_data": {
+            "12042": {
+                "absentee_ballots_early_votes": 0,
+                "election_day_votes": 0
+            },
+            "44282": {
+                "absentee_ballots_early_votes": 0,
+                "election_day_votes": 0
+            }
+        },
+        "estimated_votes": {
+            "estimated_votes_low": 166051,
+            "estimated_votes_mid": 166218,
+            "estimated_votes_high": 166384
+        },
+        "precincts": {
+            "total": 0,
+            "reporting": 213
+        },
+        "counties": [
+            {
+                "vcus": [
+                    {
+                        "id": 1353,
+                        "vcu": "Baldwin",
+                        "fips": "01003",
+                        "estimated_votes": {
+                            "estimated_votes_low": 66835,
+                            "estimated_votes_mid": 66902,
+                            "estimated_votes_high": 66969
+                        },
+                        "precincts": {
+                            "total": 0,
+                            "reporting": 53
+                        },
+                        "votes": {
+                            "12042": 59106,
+                            "44282": 7729
+                        },
+                        "voting_data": {
+                            "12042": {
+                                "absentee_ballots_early_votes": 0,
+                                "election_day_votes": 0
+                            },
+                            "44282": {
+                                "absentee_ballots_early_votes": 0,
+                                "election_day_votes": 0
+                            }
+                        }
+                    }
+                ],
+                "id": 101,
+                "county": "Baldwin",
+                "fips": "01003",
+                "estimated_votes": {
+                    "estimated_votes_low": 133670,
+                    "estimated_votes_mid": 133804,
+                    "estimated_votes_high": 133938
+                },
+                "precincts": {
+                    "total": 0,
+                    "reporting": 53
+                },
+                "votes": {
+                    "12042": 59106,
+                    "44282": 7729
+                },
+                "voting_data": {
+                    "12042": {
+                        "absentee_ballots_early_votes": 0,
+                        "election_day_votes": 0
+                    },
+                    "44282": {
+                        "absentee_ballots_early_votes": 0,
+                        "election_day_votes": 0
+                    }
+                }
+            },
+            {
+                "vcus": [
+                    {
+                        "id": 1354,
+                        "vcu": "Escambia",
+                        "fips": "01053",
+                        "estimated_votes": {
+                            "estimated_votes_low": 7835,
+                            "estimated_votes_mid": 7843,
+                            "estimated_votes_high": 7851
+                        },
+                        "precincts": {
+                            "total": 0,
+                            "reporting": 30
+                        },
+                        "votes": {
+                            "12042": 7098,
+                            "44282": 737
+                        },
+                        "voting_data": {
+                            "12042": {
+                                "absentee_ballots_early_votes": 0,
+                                "election_day_votes": 0
+                            },
+                            "44282": {
+                                "absentee_ballots_early_votes": 0,
+                                "election_day_votes": 0
+                            }
+                        }
+                    }
+                ],
+                "id": 126,
+                "county": "Escambia",
+                "fips": "01053",
+                "estimated_votes": {
+                    "estimated_votes_low": 15670,
+                    "estimated_votes_mid": 15686,
+                    "estimated_votes_high": 15702
+                },
+                "precincts": {
+                    "total": 0,
+                    "reporting": 30
+                },
+                "votes": {
+                    "12042": 7098,
+                    "44282": 737
+                },
+                "voting_data": {
+                    "12042": {
+                        "absentee_ballots_early_votes": 0,
+                        "election_day_votes": 0
+                    },
+                    "44282": {
+                        "absentee_ballots_early_votes": 0,
+                        "election_day_votes": 0
+                    }
+                }
+            },
+            {
+                "vcus": [
+                    {
+                        "id": 1352,
+                        "vcu": "Mobile",
+                        "fips": "01097",
+                        "estimated_votes": {
+                            "estimated_votes_low": 81552,
+                            "estimated_votes_mid": 81634,
+                            "estimated_votes_high": 81715
+                        },
+                        "precincts": {
+                            "total": 0,
+                            "reporting": 81
+                        },
+                        "votes": {
+                            "12042": 64788,
+                            "44282": 16764
+                        },
+                        "voting_data": {
+                            "12042": {
+                                "absentee_ballots_early_votes": 0,
+                                "election_day_votes": 0
+                            },
+                            "44282": {
+                                "absentee_ballots_early_votes": 0,
+                                "election_day_votes": 0
+                            }
+                        }
+                    }
+                ],
+                "id": 148,
+                "county": "Mobile",
+                "fips": "01097",
+                "estimated_votes": {
+                    "estimated_votes_low": 163104,
+                    "estimated_votes_mid": 163268,
+                    "estimated_votes_high": 163430
+                },
+                "precincts": {
+                    "total": 0,
+                    "reporting": 81
+                },
+                "votes": {
+                    "12042": 64788,
+                    "44282": 16764
+                },
+                "voting_data": {
+                    "12042": {
+                        "absentee_ballots_early_votes": 0,
+                        "election_day_votes": 0
+                    },
+                    "44282": {
+                        "absentee_ballots_early_votes": 0,
+                        "election_day_votes": 0
+                    }
+                }
+            },
+            {
+                "vcus": [
+                    {
+                        "id": 1370,
+                        "vcu": "Monroe",
+                        "fips": "01099",
+                        "estimated_votes": {
+                            "estimated_votes_low": 4917,
+                            "estimated_votes_mid": 4922,
+                            "estimated_votes_high": 4927
+                        },
+                        "precincts": {
+                            "total": 0,
+                            "reporting": 29
+                        },
+                        "votes": {
+                            "12042": 4292,
+                            "44282": 625
+                        },
+                        "voting_data": {
+                            "12042": {
+                                "absentee_ballots_early_votes": 0,
+                                "election_day_votes": 0
+                            },
+                            "44282": {
+                                "absentee_ballots_early_votes": 0,
+                                "election_day_votes": 0
+                            }
+                        }
+                    }
+                ],
+                "id": 149,
+                "county": "Monroe",
+                "fips": "01099",
+                "estimated_votes": {
+                    "estimated_votes_low": 9834,
+                    "estimated_votes_mid": 9844,
+                    "estimated_votes_high": 9854
+                },
+                "precincts": {
+                    "total": 0,
+                    "reporting": 29
+                },
+                "votes": {
+                    "12042": 4292,
+                    "44282": 625
+                },
+                "voting_data": {
+                    "12042": {
+                        "absentee_ballots_early_votes": 0,
+                        "election_day_votes": 0
+                    },
+                    "44282": {
+                        "absentee_ballots_early_votes": 0,
+                        "election_day_votes": 0
+                    }
+                }
+            },
+            {
+                "vcus": [
+                    {
+                        "id": 1375,
+                        "vcu": "Washington",
+                        "fips": "01129",
+                        "estimated_votes": {
+                            "estimated_votes_low": 4912,
+                            "estimated_votes_mid": 4917,
+                            "estimated_votes_high": 4922
+                        },
+                        "precincts": {
+                            "total": 0,
+                            "reporting": 20
+                        },
+                        "votes": {
+                            "12042": 4570,
+                            "44282": 342
+                        },
+                        "voting_data": {
+                            "12042": {
+                                "absentee_ballots_early_votes": 0,
+                                "election_day_votes": 0
+                            },
+                            "44282": {
+                                "absentee_ballots_early_votes": 0,
+                                "election_day_votes": 0
+                            }
+                        }
+                    }
+                ],
+                "id": 164,
+                "county": "Washington",
+                "fips": "01129",
+                "estimated_votes": {
+                    "estimated_votes_low": 9824,
+                    "estimated_votes_mid": 9834,
+                    "estimated_votes_high": 9844
+                },
+                "precincts": {
+                    "total": 0,
+                    "reporting": 20
+                },
+                "votes": {
+                    "12042": 4570,
+                    "44282": 342
+                },
+                "voting_data": {
+                    "12042": {
+                        "absentee_ballots_early_votes": 0,
+                        "election_day_votes": 0
+                    },
+                    "44282": {
+                        "absentee_ballots_early_votes": 0,
+                        "election_day_votes": 0
+                    }
+                }
+            }
+        ],
+        "called": 12042,
+        "called_candidates": [
+            12042
+        ],
+        "call_times": [
+            {
+                "cand_id": 12042,
+                "call_time": "2022-11-09T00:59:54+00:00"
+            }
+        ],
+        "advancing_candidates": [],
+        "advance_times": [],
+        "called_time": "2022-11-09T00:59:54+00:00"
+    },
+    "candidates": [
+        {
+            "cand_id": 12042,
+            "party_name": "Republican",
+            "party_id": 2,
+            "first_name": "Jerry",
+            "last_name": "Carl",
+            "incumbent": 1
+        },
+        {
+            "cand_id": 44282,
+            "party_name": "Libertarian",
+            "party_id": 4,
+            "first_name": "Alexander",
+            "last_name": "Remrey",
+            "incumbent": 0
+        }
+    ]
+}

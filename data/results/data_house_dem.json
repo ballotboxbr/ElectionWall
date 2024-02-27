@@ -1,0 +1,12 @@
+var data_house_dem = {
+"2024-IL-01":{"cand1_firstname":"Johnathan","cand1_lastname":"Jackson","cand1_party":"d","cand1_vote":0,
+"total_vote":0,"winner":"","incumbent":"cand1"},
+"2024-IL-02":{"cand1_firstname":"Robin","cand1_lastname":"Kelly","cand1_party":"d","cand1_vote":0,
+"total_vote":0,"winner":"","incumbent":"cand1"},
+"2024-IL-03":{"cand1_firstname":"Delia","cand1_lastname":"Ramirez","cand1_party":"d","cand1_vote":0,
+"total_vote":0,"winner":"","incumbent":"cand1"},
+"2024-IL-04":{"cand1_firstname":"Jesus","cand1_lastname":"Garcia","cand1_party":"d","cand1_vote":0,
+"cand2_firstname":"Raymond","cand2_lastname":"Lopez","cand2_party":"d1","cand2_vote":0,
+"total_vote":0,"winner":"","incumbent":"cand1"},
+
+};
